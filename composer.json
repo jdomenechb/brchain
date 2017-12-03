@@ -11,11 +11,13 @@
     ],
     "autoload": {
         "psr-4": {
-            "Jdomenechb\\BRChain\\": "src/",
-            "Jdomenechb\\BRChain\\Tests\\": "tests/"
+            "Jdomenechb\\BRChain\\": "src/"
         }
     },
     "require": {
         "php": ">=7.1"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "^4.2"
     }
 }
