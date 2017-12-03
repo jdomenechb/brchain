@@ -1,0 +1,12 @@
+{
+    "name": "jdomenechb/brchain",
+    "description": "Transformation and validation of data sources using an unified language",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jordi Domènech Bonilla",
+            "email": "jdomenechb.borges@gmail.com"
+        }
+    ]
+}
