@@ -14,5 +14,8 @@
             "Jdomenechb\\BRChain\\": "src/",
             "Jdomenechb\\BRChain\\Tests\\": "tests/"
         }
+    },
+    "require": {
+        "php": ">=7.1"
     }
 }
