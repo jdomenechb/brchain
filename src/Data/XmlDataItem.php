@@ -72,7 +72,7 @@ class XmlDataItem implements DataItemInterface
         $matchedNodes = $domXPath->query($path);
 
         foreach ($matchedNodes as $matchedNode) {
-            $result[] = $matchedNode;
+            $result[] = new self($matchedNode);
         }
 
         return $result;

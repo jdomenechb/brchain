@@ -47,6 +47,34 @@ class XmlDataItemSpec extends ObjectBehavior
 
         $this->beConstructedWith($xml);
 
-        $this->queryPath('/a/b/c | /a')->shouldBeEqualTo([$nodeA, $nodeC]);
+        $this->queryPath('/a/b/c | /a')
+            ->shouldBeSameXMLDataItemArray([new XmlDataItem($nodeA), new XmlDataItem($nodeC)]);
+    }
+
+    public function getMatchers(): array
+    {
+        return [
+            'beSameXMLDataItemArray' => function ($subject, $value) {
+                if (!\is_array($subject) || !\is_array($value) || \count($subject) !== \count($value)) {
+                    return false;
+                }
+
+                foreach ($subject as $subjectKey => $subjectValue) {
+                    if (
+                        !$subjectValue instanceof XmlDataItem
+                        || !isset($value[$subjectKey])
+                        || !$value[$subjectKey] instanceof XmlDataItem
+                    ) {
+                        return false;
+                    }
+
+                    if (!$subjectValue->getData()->isSameNode($value[$subjectKey]->getData())) {
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+        ];
     }
 }
