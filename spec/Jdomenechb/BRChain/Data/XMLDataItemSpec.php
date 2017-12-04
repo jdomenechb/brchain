@@ -18,18 +18,14 @@ class XMLDataItemSpec extends ObjectBehavior
         $this->shouldImplement(DataItemInterface::class);
     }
 
-    public function it_accepts_DOMNode_data()
+    public function it_accepts_XML_data(\DOMNode $dom)
     {
-        $dom = new \DOMDocument();
-
         $this->setData($dom)->shouldReturn($this);
         $this->getData()->shouldReturn($dom);
     }
 
-    public function it_optionally_accepts_DOMNode_data_through_the_constructor()
+    public function it_optionally_accepts_XML_data_when_creating_it(\DOMNode $dom)
     {
-        $dom = new \DOMDocument();
-
         $this->beConstructedWith($dom);
         $this->getData()->shouldReturn($dom);
     }
