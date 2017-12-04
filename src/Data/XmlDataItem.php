@@ -82,7 +82,7 @@ class XmlDataItem implements DataItemInterface
     /**
      * @return \DOMXPath
      */
-    protected function getDomXPath()
+    protected function getDomXPath() : \DOMXPath
     {
         if ($this->domXPath === null) {
             if ($this->data === null) {
