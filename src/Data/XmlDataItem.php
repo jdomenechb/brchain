@@ -20,6 +20,11 @@ class XmlDataItem implements DataItemInterface
     protected $data;
 
     /**
+     * @var \DOMXPath
+     */
+    protected $domXPath;
+
+    /**
      * XMLDataItem constructor.
      * @param \DOMNode $data
      */
@@ -58,11 +63,38 @@ class XmlDataItem implements DataItemInterface
      * @param string $path
      * @return DataItemInterface|null
      */
-    public function queryPath(string $path): ?DataItemInterface
+    public function queryPath(string $path): array
     {
-        // TODO: Implement queryPath() method.
-        return null;
+        $domXPath = $this->getDomXPath();
+
+        $result = [];
+
+        $matchedNodes = $domXPath->query($path);
+
+        foreach ($matchedNodes as $matchedNode) {
+            $result[] = $matchedNode;
+        }
+
+        return $result;
     }
 
+
+    /**
+     * @return \DOMXPath
+     */
+    protected function getDomXPath()
+    {
+        if ($this->domXPath === null) {
+            if ($this->data === null) {
+                throw new \RuntimeException('No DOMXPath nor data has been defined');
+            }
+
+            $this->domXPath = new \DOMXPath(
+                !$this->data instanceof \DOMDocument? $this->data->ownerDocument: $this->data
+            );
+        }
+
+        return $this->domXPath;
+    }
 
 }

@@ -47,6 +47,6 @@ class XmlDataItemSpec extends ObjectBehavior
 
         $this->beConstructedWith($xml);
 
-        $this->queryPath('/a/b/c')->shouldBeEqualTo($nodeC);
+        $this->queryPath('/a/b/c | /a')->shouldBeEqualTo([$nodeA, $nodeC]);
     }
 }

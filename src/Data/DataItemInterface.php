@@ -27,9 +27,9 @@ interface DataItemInterface
     public function setData($data);
 
     /**
-     * Given a path, tries to obtain the element
+     * Given a path, tries to obtain the elements that match the path.
      * @param string $path
-     * @return DataItemInterface|null
+     * @return DataItemInterface[]|null
      */
-    public function queryPath(string $path): ?self;
+    public function queryPath(string $path): array;
 }
