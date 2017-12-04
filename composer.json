@@ -2,6 +2,7 @@
     "name": "jdomenechb/brchain",
     "description": "Transformation and validation of data sources using an unified language",
     "minimum-stability": "stable",
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
