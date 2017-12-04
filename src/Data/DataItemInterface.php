@@ -23,7 +23,13 @@ interface DataItemInterface
     /**
      * Sets the data the item will use as reference.
      * @param mixed $data
-     * @return self
      */
     public function setData($data);
+
+    /**
+     * Given a path, tries to obtain the element
+     * @param string $path
+     * @return DataItemInterface|null
+     */
+    public function queryPath(string $path): ?self;
 }

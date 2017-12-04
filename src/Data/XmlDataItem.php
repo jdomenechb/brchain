@@ -12,7 +12,7 @@
 namespace Jdomenechb\BRChain\Data;
 
 
-class XMLDataItem implements DataItemInterface
+class XmlDataItem implements DataItemInterface
 {
     /**
      * @var \DOMNode
@@ -46,10 +46,23 @@ class XMLDataItem implements DataItemInterface
      */
     public function setData($data) : self
     {
-        \assert($data instanceof \DOMNode, 'Parameter $data should be an instance of DOMNode');
+        \assert($data instanceof \DOMNode, 'Parameter "data" should be an instance of DOMNode');
 
         $this->data = $data;
 
         return $this;
     }
+
+    /**
+     * @inheritdoc
+     * @param string $path
+     * @return DataItemInterface|null
+     */
+    public function queryPath(string $path): ?DataItemInterface
+    {
+        // TODO: Implement queryPath() method.
+        return null;
+    }
+
+
 }
