@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Jdomenechb\BRChain\Data;
+namespace Jdomenechb\BRChain\Source\SourceItem;
 
 
-interface DataItemInterface
+interface SourceItemInterface
 {
     /**
      * Returns the data the item uses as reference.
@@ -29,7 +29,7 @@ interface DataItemInterface
     /**
      * Given a path, tries to obtain the elements that match the path.
      * @param string $path
-     * @return DataItemInterface[]|null
+     * @return SourceItemInterface[]|null
      */
     public function queryPath(string $path): array;
 }

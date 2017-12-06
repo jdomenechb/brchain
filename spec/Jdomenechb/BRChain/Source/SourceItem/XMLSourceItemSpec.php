@@ -1,21 +1,31 @@
 <?php
 
-namespace spec\Jdomenechb\BRChain\Data;
+/**
+ * This file is part of the brchain package.
+ *
+ * (c) Jordi Domènech Bonilla
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
-use Jdomenechb\BRChain\Data\DataItemInterface;
-use Jdomenechb\BRChain\Data\XmlDataItem;
+
+namespace spec\Jdomenechb\BRChain\Source\SourceItem;
+
+use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
+use Jdomenechb\BRChain\Source\SourceItem\XMLSourceItem;
 use PhpSpec\ObjectBehavior;
 
-class XmlDataItemSpec extends ObjectBehavior
+class XMLSourceItemSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType(XmlDataItem::class);
+        $this->shouldHaveType(XMLSourceItem::class);
     }
 
     public function it_is_a_data_item()
     {
-        $this->shouldImplement(DataItemInterface::class);
+        $this->shouldImplement(SourceItemInterface::class);
     }
 
     public function it_accepts_XML_data(\DOMNode $dom)
@@ -48,7 +58,7 @@ class XmlDataItemSpec extends ObjectBehavior
         $this->beConstructedWith($xml);
 
         $this->queryPath('/a/b/c | /a')
-            ->shouldBeSameXMLDataItemArray([new XmlDataItem($nodeA), new XmlDataItem($nodeC)]);
+            ->shouldBeSameXMLDataItemArray([new XMLSourceItem($nodeA), new XMLSourceItem($nodeC)]);
     }
 
     public function getMatchers(): array
@@ -61,9 +71,9 @@ class XmlDataItemSpec extends ObjectBehavior
 
                 foreach ($subject as $subjectKey => $subjectValue) {
                     if (
-                        !$subjectValue instanceof XmlDataItem
+                        !$subjectValue instanceof XMLSourceItem
                         || !isset($value[$subjectKey])
-                        || !$value[$subjectKey] instanceof XmlDataItem
+                        || !$value[$subjectKey] instanceof XMLSourceItem
                     ) {
                         return false;
                     }

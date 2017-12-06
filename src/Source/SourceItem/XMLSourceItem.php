@@ -9,10 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Jdomenechb\BRChain\Data;
+namespace Jdomenechb\BRChain\Source\SourceItem;
 
-
-class XmlDataItem implements DataItemInterface
+class XMLSourceItem implements SourceItemInterface
 {
     /**
      * @var \DOMNode
@@ -47,7 +46,7 @@ class XmlDataItem implements DataItemInterface
     /**
      * @inheritdoc
      * @param mixed $data
-     * @return XMLDataItem
+     * @return XMLSourceItem
      */
     public function setData($data) : self
     {
@@ -61,7 +60,8 @@ class XmlDataItem implements DataItemInterface
     /**
      * @inheritdoc
      * @param string $path
-     * @return DataItemInterface|null
+     * @return SourceItemInterface|null
+     * @throws \RuntimeException
      */
     public function queryPath(string $path): array
     {
@@ -81,6 +81,7 @@ class XmlDataItem implements DataItemInterface
 
     /**
      * @return \DOMXPath
+     * @throws \RuntimeException
      */
     protected function getDomXPath() : \DOMXPath
     {
