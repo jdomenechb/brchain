@@ -42,7 +42,7 @@ class XMLSourceItemSpec extends ObjectBehavior
 
     public function it_does_not_accept_other_data_than_XML()
     {
-        $this->shouldTrigger(E_WARNING, 'assert(): Parameter "data" should be an instance of DOMNode')
+        $this->shouldThrow(\TypeError::class)
             ->during('setData', ['Other data']);
     }
 

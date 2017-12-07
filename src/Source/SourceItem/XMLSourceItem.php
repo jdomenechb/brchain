@@ -35,7 +35,7 @@ class XMLSourceItem implements SourceItemInterface
     }
 
     /**
-     * @inheritdoc
+     * Returns the data the item uses as reference.
      * @return \DOMNode
      */
     public function getData() : \DOMNode
@@ -44,14 +44,12 @@ class XMLSourceItem implements SourceItemInterface
     }
 
     /**
-     * @inheritdoc
-     * @param mixed $data
-     * @return XMLSourceItem
+     * Sets the data the item will use as reference.
+     * @param \DOMNode $data
+     * @return self
      */
-    public function setData($data) : self
+    public function setData(\DOMNode $data) : self
     {
-        \assert($data instanceof \DOMNode, 'Parameter "data" should be an instance of DOMNode');
-
         $this->data = $data;
 
         return $this;
@@ -85,6 +83,7 @@ class XMLSourceItem implements SourceItemInterface
      */
     protected function getDomXPath() : \DOMXPath
     {
+        // Lazy creation of DOMXPath
         if ($this->domXPath === null) {
             if ($this->data === null) {
                 throw new \RuntimeException('No DOMXPath nor data has been defined');

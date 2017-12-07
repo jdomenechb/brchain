@@ -15,18 +15,6 @@ namespace Jdomenechb\BRChain\Source\SourceItem;
 interface SourceItemInterface
 {
     /**
-     * Returns the data the item uses as reference.
-     * @return mixed
-     */
-    public function getData();
-
-    /**
-     * Sets the data the item will use as reference.
-     * @param mixed $data
-     */
-    public function setData($data);
-
-    /**
      * Given a path, tries to obtain the elements that match the path.
      * @param string $path
      * @return SourceItemInterface[]|null
