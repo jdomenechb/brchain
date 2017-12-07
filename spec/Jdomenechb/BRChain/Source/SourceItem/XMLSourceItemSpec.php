@@ -30,7 +30,7 @@ class XMLSourceItemSpec extends ObjectBehavior
 
     public function it_accepts_XML_data(\DOMNode $dom)
     {
-        $this->setData($dom)->shouldReturn($this);
+        $this->setData($dom);
         $this->getData()->shouldReturn($dom);
     }
 

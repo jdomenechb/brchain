@@ -46,13 +46,10 @@ class XMLSourceItem implements SourceItemInterface
     /**
      * Sets the data the item will use as reference.
      * @param \DOMNode $data
-     * @return self
      */
-    public function setData(\DOMNode $data) : self
+    public function setData(\DOMNode $data)
     {
         $this->data = $data;
-
-        return $this;
     }
 
     /**
