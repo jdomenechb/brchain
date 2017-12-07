@@ -10,7 +10,10 @@
  */
 
 namespace Jdomenechb\BRChain\Source;
+
 use Jdomenechb\BRChain\ChainableItemInterface;
+use Jdomenechb\BRChain\ChainContainerItemInterface;
+use Jdomenechb\BRChain\ChainContainerItemTrait;
 use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
 use Jdomenechb\BRChain\Source\SourceItem\XMLSourceItem;
 
@@ -18,8 +21,10 @@ use Jdomenechb\BRChain\Source\SourceItem\XMLSourceItem;
  * Source class for XML strings, to be able to process them using a chain.
  * @package Jdomenechb\BRChain\Source
  */
-class XML implements ChainableItemInterface, SourceInterface
+class XML implements ChainableItemInterface, SourceInterface, ChainContainerItemInterface
 {
+    use ChainContainerItemTrait;
+
     /**
      * @inheritdoc
      * @param SourceItemInterface $sourceItem
@@ -52,5 +57,4 @@ class XML implements ChainableItemInterface, SourceInterface
 
         return $domDocument->saveXML($resultData);
     }
-
 }

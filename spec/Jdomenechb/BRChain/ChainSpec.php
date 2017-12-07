@@ -23,7 +23,8 @@ class ChainSpec extends ObjectBehavior
         $this->shouldHaveType(Chain::class);
     }
 
-    public function it_processes_SourceItems_by_executing_its_containing_items(ChainableItemInterface $item1, ChainableItemInterface $item2, SourceItemInterface $sourceItem)
+    public function it_processes_SourceItems_by_executing_its_containing_items(ChainableItemInterface $item1,
+       ChainableItemInterface $item2, SourceItemInterface $sourceItem)
     {
         $item1->process($sourceItem)->shouldBeCalled();
         $item2->process($sourceItem)->shouldBeCalled();
