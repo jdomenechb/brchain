@@ -27,6 +27,10 @@ trait ChainContainerItemTrait
      */
     public function getChain() : ChainInterface
     {
+        if ($this->chain === null) {
+            $this->chain = new Chain();
+        }
+
         return $this->chain;
     }
 }

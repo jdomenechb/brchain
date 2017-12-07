@@ -11,8 +11,15 @@
 
 namespace Jdomenechb\BRChain\Navigation;
 
-class Path
+use Jdomenechb\BRChain\ChainableItemInterface;
+use Jdomenechb\BRChain\ChainContainerItemInterface;
+use Jdomenechb\BRChain\ChainContainerItemTrait;
+use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
+
+class Path implements ChainableItemInterface, ChainContainerItemInterface
 {
+    use ChainContainerItemTrait;
+
     /**
      * Path to navigate to.
      * @var string
@@ -35,5 +42,10 @@ class Path
     {
         $this->path = $path;
         return $this;
+    }
+
+    public function process(SourceItemInterface $sourceItem): void
+    {
+        // TODO: Implement process() method.
     }
 }
