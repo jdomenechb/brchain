@@ -11,7 +11,10 @@
 
 namespace Jdomenechb\BRChain\Source\SourceItem;
 
-
+/**
+ * Interface to be implemented by all SourceItems.
+ * @package Jdomenechb\BRChain\Source\SourceItem
+ */
 interface SourceItemInterface
 {
     /**

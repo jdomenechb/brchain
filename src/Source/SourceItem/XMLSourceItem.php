@@ -11,6 +11,10 @@
 
 namespace Jdomenechb\BRChain\Source\SourceItem;
 
+/**
+ * SourceItem that represents an XML node.
+ * @package Jdomenechb\BRChain\Source\SourceItem
+ */
 class XMLSourceItem implements SourceItemInterface
 {
     /**

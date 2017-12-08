@@ -17,6 +17,10 @@ use Jdomenechb\BRChain\Chain\ChainContainerItemTrait;
 use Jdomenechb\BRChain\DynamicOptionsTrait;
 use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
 
+/**
+ * Navigator that explores depth structures by providing a path.
+ * @package Jdomenechb\BRChain\Navigation
+ */
 class Path implements ChainableItemInterface, ChainContainerItemInterface
 {
     use ChainContainerItemTrait;

@@ -11,7 +11,10 @@
 
 namespace Jdomenechb\BRChain\Chain;
 
-
+/**
+ * Trait providing a ChainContainerItem the usual method that should be implemented already implemented.
+ * @package Jdomenechb\BRChain\Chain
+ */
 trait ChainContainerItemTrait
 {
     /**
