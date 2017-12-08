@@ -11,6 +11,9 @@
 
 namespace Jdomenechb\BRChain;
 
+use Jdomenechb\BRChain\Chain\Chain;
+use Jdomenechb\BRChain\Chain\ChainableItemInterface;
+use Jdomenechb\BRChain\Chain\ChainContainerItemInterface;
 use Jdomenechb\BRChain\Exception\Parser\MissingParameterException;
 use Jdomenechb\BRChain\Exception\Parser\UnknownNameException;
 use Jdomenechb\BRChain\Exception\Parser\UnknownTypeException;

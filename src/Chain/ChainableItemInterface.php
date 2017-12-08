@@ -9,8 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Jdomenechb\BRChain;
-
+namespace Jdomenechb\BRChain\Chain;
 
 use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
 

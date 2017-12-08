@@ -21,6 +21,7 @@ class UnknownTypeException extends ParserException
     /**
      * UnknownTypeException constructor.
      * @param string $type
+     * @param string[] $knownTypes
      * @param array $context
      * @param Throwable|null $previous
      */

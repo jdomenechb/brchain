@@ -11,6 +11,7 @@
 
 namespace Jdomenechb\BRChain;
 
+use Jdomenechb\BRChain\Chain\ChainableItemInterface;
 use Jdomenechb\BRChain\Exception\OptionDoesNotExistException;
 
 /**

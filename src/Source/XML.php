@@ -11,9 +11,9 @@
 
 namespace Jdomenechb\BRChain\Source;
 
-use Jdomenechb\BRChain\ChainableItemInterface;
-use Jdomenechb\BRChain\ChainContainerItemInterface;
-use Jdomenechb\BRChain\ChainContainerItemTrait;
+use Jdomenechb\BRChain\Chain\ChainableItemInterface;
+use Jdomenechb\BRChain\Chain\ChainContainerItemInterface;
+use Jdomenechb\BRChain\Chain\ChainContainerItemTrait;
 use Jdomenechb\BRChain\DynamicOptionsTrait;
 use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
 use Jdomenechb\BRChain\Source\SourceItem\XMLSourceItem;
