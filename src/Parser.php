@@ -15,8 +15,10 @@ use Jdomenechb\BRChain\Chain\Chain;
 use Jdomenechb\BRChain\Chain\ChainableItemInterface;
 use Jdomenechb\BRChain\Chain\ChainContainerItemInterface;
 use Jdomenechb\BRChain\Exception\Parser\MissingParameterException;
+use Jdomenechb\BRChain\Exception\Parser\NotASourceException;
 use Jdomenechb\BRChain\Exception\Parser\UnknownNameException;
 use Jdomenechb\BRChain\Exception\Parser\UnknownTypeException;
+use Jdomenechb\BRChain\Source\SourceInterface;
 
 /**
  * Takes an array of data potentially translatable to a chain definition, and returns the resulting chain.
@@ -54,7 +56,27 @@ class Parser
     }
 
     /**
-     * Parse the given data array to create an object from the information
+     * Parse the given Source data array to create a SourceInterface object from the information.
+     * @param array $data
+     * @return SourceInterface
+     * @throws MissingParameterException
+     * @throws UnknownTypeException
+     * @throws UnknownNameException
+     * @throws NotASourceException
+     */
+    public function parseSource(array $data) : SourceInterface
+    {
+        $obj = $this->parse($data);
+
+        if (!$obj instanceof SourceInterface) {
+            throw new NotASourceException($data);
+        }
+
+        return $obj;
+    }
+
+    /**
+     * Parse the given data array to create an object from the information.
      * @param array $data
      * @return ChainableItemInterface
      * @throws MissingParameterException
