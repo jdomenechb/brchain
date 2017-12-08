@@ -24,4 +24,10 @@ interface ChainableItemInterface
      * @param SourceItemInterface $sourceItem
      */
     public function process(SourceItemInterface $sourceItem) : void;
+
+    /**
+     * Set options to the item.
+     * @param array $options
+     */
+    public function setOptions(array $options) : void;
 }
