@@ -23,6 +23,6 @@ class XMLSpec extends ObjectBehavior
 
     public function it_processes_strings()
     {
-        $this->processString('<a/>')->shouldBeString();
+        $this->processFromString('<a/>')->shouldBeString();
     }
 }

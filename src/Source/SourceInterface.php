@@ -22,5 +22,5 @@ interface SourceInterface
      * @param string $data
      * @return string
      */
-    public function processString(string $data): string;
+    public function processFromString(string $data): string;
 }

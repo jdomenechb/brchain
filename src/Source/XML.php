@@ -39,7 +39,7 @@ class XML implements ChainableItemInterface, SourceInterface, ChainContainerItem
     /**
      * @inheritdoc
      */
-    public function processString(string $data): string
+    public function processFromString(string $data): string
     {
         // Prepare the SourceItem
         $domDocument = new \DOMDocument();
