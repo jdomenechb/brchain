@@ -78,7 +78,7 @@ class Parser
         unset($data[static::DATA_TYPE]);
 
         // Check if type is known
-        if (!isset($this->itemTypes[$type])) {
+        if (!isset(static::$itemTypes[$type])) {
             throw new UnknownTypeException($type, array_keys(static::$itemTypes), $data);
         }
 
@@ -92,7 +92,7 @@ class Parser
 
         // Check class existance
         if (!class_exists($itemClass) || !class_implements($itemClass, ChainableItemInterface::class)) {
-            throw new UnknownNameException($name, $data);
+            throw new UnknownNameException($type, $name, $data);
         }
 
         // Create instance of item object

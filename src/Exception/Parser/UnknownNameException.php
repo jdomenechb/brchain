@@ -20,13 +20,14 @@ class UnknownNameException extends ParserException
 {
     /**
      * UnknownTypeException constructor.
+     * @param string $type
      * @param string $name
      * @param array $context
      * @param Throwable|null $previous
      */
-    public function __construct(string $name, array $context, Throwable $previous = null)
+    public function __construct(string $type, string $name, array $context, Throwable $previous = null)
     {
-        $msg = 'Unknown item name "' . $name . '"';
+        $msg = 'Unknown ' . $type . ' "' . $name . '"';
 
         parent::__construct($msg, $context, $previous);
     }

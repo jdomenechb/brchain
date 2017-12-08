@@ -19,6 +19,7 @@
         "php": ">=7.1"
     },
     "require-dev": {
-        "phpspec/phpspec": "^4.2"
+        "phpspec/phpspec": "^4.2",
+        "symfony/yaml": "^4.0"
     }
 }
