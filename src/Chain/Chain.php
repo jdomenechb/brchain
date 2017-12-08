@@ -23,7 +23,7 @@ class Chain implements ChainInterface, \Iterator
      * Items contained in the chain.
      * @var ChainableItemInterface[]
      */
-    protected $chain = [];
+    protected $items = [];
 
     /**
      * Internal position of the iterator.
@@ -36,7 +36,7 @@ class Chain implements ChainInterface, \Iterator
      */
     public function add(ChainableItemInterface $item): void
     {
-        $this->chain[] = $item;
+        $this->items[] = $item;
     }
 
     /**
@@ -44,36 +44,63 @@ class Chain implements ChainInterface, \Iterator
      */
     public function process(SourceItemInterface $sourceItem): void
     {
-        foreach ($this->chain as $item) {
+        foreach ($this->items as $item) {
             $item->process($sourceItem);
         }
     }
+
+    /**
+     * @return ChainableItemInterface[]
+     */
+    public function getItems(): array
+    {
+        return $this->items;
+    }
+
 
     /*
      * Iterator methods
      */
 
-    public function current()
+    /**
+     * Returns the current element of the iterator.
+     * @return ChainableItemInterface
+     */
+    public function current() : ChainableItemInterface
     {
-        return $this->chain[$this->position];
+        return $this->items[$this->position];
     }
 
-    public function next()
+    /**
+     * Increases the iterator position by one.
+     */
+    public function next() : void
     {
         ++$this->position;
     }
 
-    public function key()
+    /**
+     * Returns the current iterator position.
+     * @return int
+     */
+    public function key() : int
     {
         return $this->position;
     }
 
-    public function valid()
+    /**
+     * Checks if there is an element in the current iterator position.
+     * @return bool
+     */
+    public function valid() : bool
     {
-        return isset($this->chain[$this->position]);
+        return isset($this->items[$this->position]);
     }
 
-    public function rewind()
+    /**
+     * Rewinds the iterator to the first element.
+     */
+    public function rewind() : void
     {
         $this->position = 0;
     }
