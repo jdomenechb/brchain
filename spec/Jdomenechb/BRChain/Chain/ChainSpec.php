@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace spec\Jdomenechb\BRChain;
+namespace spec\Jdomenechb\BRChain\Chain;
 
-use Jdomenechb\BRChain\Chain;
-use Jdomenechb\BRChain\ChainableItemInterface;
+use Jdomenechb\BRChain\Chain\Chain;
+use Jdomenechb\BRChain\Chain\ChainableItemInterface;
 use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
 use PhpSpec\ObjectBehavior;
 

@@ -11,10 +11,10 @@
 
 namespace spec\Jdomenechb\BRChain\Navigation;
 
-use Jdomenechb\BRChain\Chain;
-use Jdomenechb\BRChain\ChainableItemInterface;
-use Jdomenechb\BRChain\ChainContainerItemInterface;
-use Jdomenechb\BRChain\ChainInterface;
+use Jdomenechb\BRChain\Chain\Chain;
+use Jdomenechb\BRChain\Chain\ChainableItemInterface;
+use Jdomenechb\BRChain\Chain\ChainContainerItemInterface;
+use Jdomenechb\BRChain\Chain\ChainInterface;
 use Jdomenechb\BRChain\Navigation\Path;
 use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
 use PhpSpec\ObjectBehavior;
