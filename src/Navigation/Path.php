@@ -14,11 +14,13 @@ namespace Jdomenechb\BRChain\Navigation;
 use Jdomenechb\BRChain\ChainableItemInterface;
 use Jdomenechb\BRChain\ChainContainerItemInterface;
 use Jdomenechb\BRChain\ChainContainerItemTrait;
+use Jdomenechb\BRChain\DynamicOptionsTrait;
 use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
 
 class Path implements ChainableItemInterface, ChainContainerItemInterface
 {
     use ChainContainerItemTrait;
+    use DynamicOptionsTrait;
 
     /**
      * Path to navigate to.
@@ -44,8 +46,15 @@ class Path implements ChainableItemInterface, ChainContainerItemInterface
         return $this;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function process(SourceItemInterface $sourceItem): void
     {
-        // TODO: Implement process() method.
+        $matches = $sourceItem->queryPath($this->getPath());
+
+        foreach ($matches as $match) {
+            $this->getChain()->process($match);
+        }
     }
 }

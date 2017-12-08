@@ -11,10 +11,12 @@
 
 namespace spec\Jdomenechb\BRChain\Navigation;
 
+use Jdomenechb\BRChain\Chain;
 use Jdomenechb\BRChain\ChainableItemInterface;
 use Jdomenechb\BRChain\ChainContainerItemInterface;
 use Jdomenechb\BRChain\ChainInterface;
 use Jdomenechb\BRChain\Navigation\Path;
+use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
 use PhpSpec\ObjectBehavior;
 
 class PathSpec extends ObjectBehavior
@@ -39,5 +41,17 @@ class PathSpec extends ObjectBehavior
     {
         $this->setPath('test/path')->shouldReturn($this);
         $this->getPath()->shouldReturn('test/path');
+    }
+
+    public function it_executes_chain_on_elements_matching_the_path(SourceItemInterface $sourceItem, SourceItemInterface $si1, SourceItemInterface $si2, Chain $chain)
+    {
+        $sourceItem->queryPath('/a/b')->willReturn([$si1, $si2]);
+
+        $chain->process($si1)->shouldBeCalled();
+        $chain->process($si2)->shouldBeCalled();
+
+        $this->setChain($chain);
+        $this->setPath('/a/b');
+        $this->process($sourceItem);
     }
 }
