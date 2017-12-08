@@ -76,6 +76,4 @@ class Chain implements ChainInterface, \Iterator
     {
         $this->position = 0;
     }
-
-
 }

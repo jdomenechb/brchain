@@ -38,7 +38,7 @@ trait ChainContainerItemTrait
      * Sets the chain to be contained in the item.
      * @param ChainInterface $chain
      */
-    public function setChain(ChainInterface $chain)
+    public function setChain(ChainInterface $chain) : void
     {
         $this->chain = $chain;
     }
