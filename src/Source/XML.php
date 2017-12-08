@@ -14,6 +14,7 @@ namespace Jdomenechb\BRChain\Source;
 use Jdomenechb\BRChain\ChainableItemInterface;
 use Jdomenechb\BRChain\ChainContainerItemInterface;
 use Jdomenechb\BRChain\ChainContainerItemTrait;
+use Jdomenechb\BRChain\DynamicOptionsTrait;
 use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
 use Jdomenechb\BRChain\Source\SourceItem\XMLSourceItem;
 
@@ -24,6 +25,7 @@ use Jdomenechb\BRChain\Source\SourceItem\XMLSourceItem;
 class XML implements ChainableItemInterface, SourceInterface, ChainContainerItemInterface
 {
     use ChainContainerItemTrait;
+    use DynamicOptionsTrait;
 
     /**
      * @inheritdoc

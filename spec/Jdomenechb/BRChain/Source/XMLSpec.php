@@ -21,8 +21,8 @@ class XMLSpec extends ObjectBehavior
         $this->shouldHaveType(XML::class);
     }
 
-    public function it_processes_given_string()
+    public function it_processes_strings()
     {
-        $this->processString('<a/>')->shouldReturn("<?xml version=\"1.0\"?>\n<a>\n\t<b/>\n</a>");
+        $this->processString('<a/>')->shouldBeString();
     }
 }
