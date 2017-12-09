@@ -41,6 +41,7 @@ class Parser
         'Condition' => 'Jdomenechb\\BRChain\\Condition',
         'Navigation' => 'Jdomenechb\\BRChain\\Navigation',
         'Source' => 'Jdomenechb\\BRChain\\Source',
+        'String' => 'Jdomenechb\\BRChain\\String',
         'Transformation' => 'Jdomenechb\\BRChain\\Transformation',
         'Validator' => 'Jdomenechb\\BRChain\\Validator',
     ];
