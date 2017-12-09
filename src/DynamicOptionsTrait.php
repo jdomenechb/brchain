@@ -15,13 +15,13 @@ use Jdomenechb\BRChain\Chain\ChainableItemInterface;
 use Jdomenechb\BRChain\Exception\OptionDoesNotExistException;
 
 /**
- * Trait for dynamically setting options to objects, depending on the public getters.
+ * Trait for dynamically setting options to objects, depending on the public getters and setters.
  * @package Jdomenechb\BRChain
  */
 trait DynamicOptionsTrait
 {
     /**
-     * Sets each option given to the object if its getter and the property exist.
+     * Sets each option given to the object if its getter, setter and property exist.
      * @param array $options
      * @throws OptionDoesNotExistException
      */
@@ -29,13 +29,18 @@ trait DynamicOptionsTrait
     {
         foreach ($options as $optionName => $optionValue) {
             $getterName = 'get' . ucfirst($optionName);
+            $setterName = 'set' . ucfirst($optionName);
 
-            if (!property_exists($this, $optionName) || !method_exists($this, $getterName)) {
+            if (
+                !property_exists($this, $optionName)
+                || !method_exists($this, $getterName)
+                || !method_exists($this, $setterName)
+            ) {
                 /** @var $this ChainableItemInterface */
                 throw new OptionDoesNotExistException($optionName, \get_class($this));
             }
 
-            $this->$optionName = $optionValue;
+            $this->$setterName($optionValue);
         }
     }
 }
