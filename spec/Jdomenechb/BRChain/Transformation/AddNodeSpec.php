@@ -31,7 +31,7 @@ class AddNodeSpec extends ObjectBehavior
         $this->shouldImplement(ChainableItemInterface::class);
     }
 
-    public function it_is_a_transformation_item()
+    public function it_is_a_Transformation_item()
     {
         $this->shouldImplement(TransformationInterface::class);
     }

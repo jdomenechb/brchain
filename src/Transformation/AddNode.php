@@ -26,7 +26,7 @@ class AddNode implements TransformationInterface
     use DynamicOptionsTrait;
 
     /**
-     * Name of the node to be created.
+     * Name of the node to be created (required).
      * @var string
      */
     protected $nodeName;
@@ -86,7 +86,7 @@ class AddNode implements TransformationInterface
     /**
      * @return string
      */
-    public function getValue(): string
+    public function getValue(): ?string
     {
         return $this->value;
     }
