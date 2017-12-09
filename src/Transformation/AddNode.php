@@ -32,6 +32,12 @@ class AddNode implements TransformationInterface
     protected $nodeName;
 
     /**
+     * Value of the node to be created
+     * @var string
+     */
+    protected $value;
+
+    /**
      * AddNode constructor.
      * @param array $options
      * @throws OptionDoesNotExistException
@@ -54,7 +60,11 @@ class AddNode implements TransformationInterface
         $data = $sourceItem->getData();
         $doc = $data instanceof \DOMDocument? $data: $data->ownerDocument;
 
-        $data->appendChild($doc->createElement((string) $this->getNodeName()));
+        $createdNode = $data->appendChild($doc->createElement((string) $this->getNodeName()));
+
+        if ($value = $this->getValue()) {
+            $createdNode->nodeValue = (string) $value;
+        }
     }
 
     /**
@@ -71,5 +81,21 @@ class AddNode implements TransformationInterface
     public function setNodeName(string $nodeName): void
     {
         $this->nodeName = $nodeName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+
+    /**
+     * @param string $value
+     */
+    public function setValue(string $value): void
+    {
+        $this->value = $value;
     }
 }
