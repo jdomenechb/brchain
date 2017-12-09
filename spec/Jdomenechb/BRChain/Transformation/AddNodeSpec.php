@@ -31,7 +31,7 @@ class AddNodeSpec extends ObjectBehavior
         $this->shouldImplement(ChainableItemInterface::class);
     }
 
-    public function it_is_a_transformation()
+    public function it_is_a_transformation_item()
     {
         $this->shouldImplement(TransformationInterface::class);
     }
@@ -48,7 +48,7 @@ class AddNodeSpec extends ObjectBehavior
         $this->getNodeName()->shouldBe('testNodeName');
     }
 
-    public function it_processes_only_XMLSourceItem(SourceItemInterface $sourceItem)
+    public function it_processes_only_XMLSourceItems(SourceItemInterface $sourceItem)
     {
         $this->shouldThrow(SourceItemNotProcessable::class)->during('process', [$sourceItem]);
     }
