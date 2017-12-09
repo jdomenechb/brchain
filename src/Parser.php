@@ -127,8 +127,6 @@ class Parser
         }
 
         // Parse objects in properties
-        $newData = [];
-
         foreach ($data as &$dataValue) {
             if (!\is_array($dataValue)) {
                 continue;
@@ -143,7 +141,7 @@ class Parser
         unset($dataValue);
 
         // Set options to item object
-        $obj->setOptions($newData);
+        $obj->setOptions($data);
 
         return $obj;
     }
