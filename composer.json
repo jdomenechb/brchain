@@ -10,14 +10,23 @@
             "email": "jdomenechb.borges@gmail.com"
         }
     ],
+
     "autoload": {
         "psr-4": {
             "Jdomenechb\\BRChain\\": "src/"
         }
     },
+
+    "autoload-dev": {
+        "psr-4": {
+            "Jdomenechb\\BRChain\\Stub\\": "stubs/"
+        }
+    },
+
     "require": {
         "php": ">=7.1"
     },
+
     "require-dev": {
         "phpspec/phpspec": "^4.2",
         "symfony/yaml": "^4.0"
