@@ -11,43 +11,45 @@
 
 namespace Jdomenechb\BRChain\Navigation;
 
+use Jdomenechb\BRChain\CallStringOptionTrait;
 use Jdomenechb\BRChain\Chain\ChainableItemInterface;
 use Jdomenechb\BRChain\Chain\ChainContainerItemInterface;
 use Jdomenechb\BRChain\Chain\ChainContainerItemTrait;
 use Jdomenechb\BRChain\DynamicOptionsTrait;
 use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
+use Jdomenechb\BRChain\String\StringInterface;
 
 /**
  * Navigator that explores depth structures by providing a path.
  * @package Jdomenechb\BRChain\Navigation
+ * @method string strPath()
  */
 class Path implements ChainableItemInterface, ChainContainerItemInterface
 {
     use ChainContainerItemTrait;
     use DynamicOptionsTrait;
+    use CallStringOptionTrait;
 
     /**
      * Path to navigate to.
-     * @var string
+     * @var StringInterface
      */
     protected $path;
 
     /**
-     * @return string
+     * @return StringInterface
      */
-    public function getPath(): string
+    public function getPath(): StringInterface
     {
         return $this->path;
     }
 
     /**
-     * @param string $path
-     * @return Path
+     * @param StringInterface $path
      */
-    public function setPath(string $path): Path
+    public function setPath(StringInterface $path): void
     {
         $this->path = $path;
-        return $this;
     }
 
     /**
@@ -55,7 +57,7 @@ class Path implements ChainableItemInterface, ChainContainerItemInterface
      */
     public function process(SourceItemInterface $sourceItem): void
     {
-        $matches = $sourceItem->queryPath($this->getPath());
+        $matches = $sourceItem->queryPath($this->strPath());
 
         foreach ($matches as $match) {
             $this->getChain()->process($match);

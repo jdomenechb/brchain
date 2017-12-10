@@ -11,6 +11,7 @@
 
 namespace Jdomenechb\BRChain\Source;
 
+use Jdomenechb\BRChain\CallStringOptionTrait;
 use Jdomenechb\BRChain\Chain\ChainableItemInterface;
 use Jdomenechb\BRChain\Chain\ChainContainerItemInterface;
 use Jdomenechb\BRChain\Chain\ChainContainerItemTrait;
@@ -27,6 +28,7 @@ class XML implements ChainableItemInterface, SourceInterface, ChainContainerItem
 {
     use ChainContainerItemTrait;
     use DynamicOptionsTrait;
+    use CallStringOptionTrait;
 
     /**
      * @inheritdoc

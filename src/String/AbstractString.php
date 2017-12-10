@@ -11,8 +11,8 @@
 
 namespace Jdomenechb\BRChain\String;
 
+use Jdomenechb\BRChain\CallStringOptionTrait;
 use Jdomenechb\BRChain\DynamicOptionsTrait;
-use Jdomenechb\BRChain\Exception\MethodNotFoundException;
 use Jdomenechb\BRChain\Exception\OptionDoesNotExistException;
 
 /**
@@ -21,6 +21,7 @@ use Jdomenechb\BRChain\Exception\OptionDoesNotExistException;
  */
 abstract class AbstractString implements StringInterface
 {
+    use CallStringOptionTrait;
     use DynamicOptionsTrait;
 
     /**
@@ -31,27 +32,5 @@ abstract class AbstractString implements StringInterface
     public function __construct(array $options = [])
     {
         $this->setOptions($options);
-    }
-
-    /**
-     * Magic method __call.
-     * @param $name
-     * @param $arguments
-     * @return string
-     * @throws MethodNotFoundException
-     */
-    public function __call($name, $arguments)
-    {
-        if (!strpos($name, 'str') === 0) {
-            throw new MethodNotFoundException($name, static::class);
-        }
-
-        $getter = 'get' . substr($name, 3);
-
-        if (!method_exists($this, $getter)) {
-            throw new MethodNotFoundException($getter, static::class);
-        }
-
-        return (string) $this->$getter(...$arguments);
     }
 }

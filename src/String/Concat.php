@@ -10,32 +10,18 @@
  */
 
 namespace Jdomenechb\BRChain\String;
-use Jdomenechb\BRChain\DynamicOptionsTrait;
-use Jdomenechb\BRChain\Exception\OptionDoesNotExistException;
 
 /**
  * Concatenates the given list of strings.
  * @package Jdomenechb\BRChain\String
  */
-class Concat implements StringInterface
+class Concat extends AbstractString
 {
-    use DynamicOptionsTrait;
-
     /**
      * List of strings to concatenate.
-     * @var string[]|StringInterface[]
+     * @var StringInterface[]
      */
     protected $strings;
-
-    /**
-     * Concat constructor.
-     * @param array $options
-     * @throws OptionDoesNotExistException
-     */
-    public function __construct(array $options = [])
-    {
-        $this->setOptions($options);
-    }
 
     /**
      * @inheritdoc
@@ -46,7 +32,7 @@ class Concat implements StringInterface
     }
 
     /**
-     * @return StringInterface[]|string[]
+     * @return StringInterface[]
      */
     public function getStrings() : array
     {
@@ -54,7 +40,7 @@ class Concat implements StringInterface
     }
 
     /**
-     * @param StringInterface[]|string[] $strings
+     * @param StringInterface[] $strings
      */
     public function setStrings(array $strings): void
     {
