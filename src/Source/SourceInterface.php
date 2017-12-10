@@ -11,11 +11,14 @@
 
 namespace Jdomenechb\BRChain\Source;
 
+use Jdomenechb\BRChain\Chain\ChainableItemInterface;
+use Jdomenechb\BRChain\Chain\ChainContainerItemInterface;
+
 /**
  * Interface implemented by all Source elements.
  * @package Jdomenechb\BRChain\Source
  */
-interface SourceInterface
+interface SourceInterface extends ChainableItemInterface, ChainContainerItemInterface
 {
     /**
      * Execute the operations this item performs on the given string, and returns the result.

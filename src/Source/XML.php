@@ -12,8 +12,6 @@
 namespace Jdomenechb\BRChain\Source;
 
 use Jdomenechb\BRChain\CallStringOptionTrait;
-use Jdomenechb\BRChain\Chain\ChainableItemInterface;
-use Jdomenechb\BRChain\Chain\ChainContainerItemInterface;
 use Jdomenechb\BRChain\Chain\ChainContainerItemTrait;
 use Jdomenechb\BRChain\DynamicOptionsTrait;
 use Jdomenechb\BRChain\Exception\SourceItemNotProcessableExtension;
@@ -24,7 +22,7 @@ use Jdomenechb\BRChain\Source\SourceItem\XMLSourceItem;
  * Source class for XML strings, to be able to process them using a chain.
  * @package Jdomenechb\BRChain\Source
  */
-class XML implements ChainableItemInterface, SourceInterface, ChainContainerItemInterface
+class XML implements SourceInterface
 {
     use ChainContainerItemTrait;
     use DynamicOptionsTrait;
