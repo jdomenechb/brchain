@@ -15,11 +15,6 @@ namespace Jdomenechb\BRChain;
  * Interface to be implemented by all items that belong to a property of another item.
  * @package Jdomenechb\BRChain
  */
-interface PropertyItemInterface
+interface PropertyItemInterface extends ItemInterface
 {
-    /**
-     * Set options to the item.
-     * @param array $options
-     */
-    public function setOptions(array $options) : void;
 }

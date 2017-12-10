@@ -11,22 +11,17 @@
 
 namespace Jdomenechb\BRChain\Chain;
 
+use Jdomenechb\BRChain\ItemInterface;
 use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
 
 /**
  * Interface that must be implemented in all items that can be contained in a chain.
  */
-interface ChainableItemInterface
+interface ChainableItemInterface extends ItemInterface
 {
     /**
      * Execute the operations this item performs on the given SourceItem.
      * @param SourceItemInterface $sourceItem
      */
     public function process(SourceItemInterface $sourceItem) : void;
-
-    /**
-     * Set options to the item.
-     * @param array $options
-     */
-    public function setOptions(array $options) : void;
 }
