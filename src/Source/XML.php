@@ -15,7 +15,7 @@ use Jdomenechb\BRChain\Chain\ChainableItemInterface;
 use Jdomenechb\BRChain\Chain\ChainContainerItemInterface;
 use Jdomenechb\BRChain\Chain\ChainContainerItemTrait;
 use Jdomenechb\BRChain\DynamicOptionsTrait;
-use Jdomenechb\BRChain\Exception\SourceItemNotProcessable;
+use Jdomenechb\BRChain\Exception\SourceItemNotProcessableExtension;
 use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
 use Jdomenechb\BRChain\Source\SourceItem\XMLSourceItem;
 
@@ -31,12 +31,12 @@ class XML implements ChainableItemInterface, SourceInterface, ChainContainerItem
     /**
      * @inheritdoc
      * @param SourceItemInterface $sourceItem
-     * @throws SourceItemNotProcessable
+     * @throws SourceItemNotProcessableExtension
      */
     public function process(SourceItemInterface $sourceItem): void
     {
         if (!$sourceItem instanceof XMLSourceItem) {
-            throw new SourceItemNotProcessable(\get_class($sourceItem), static::class);
+            throw new SourceItemNotProcessableExtension(\get_class($sourceItem), static::class);
         }
 
         $this->getChain()->process($sourceItem);
@@ -44,6 +44,7 @@ class XML implements ChainableItemInterface, SourceInterface, ChainContainerItem
 
     /**
      * @inheritdoc
+     * @throws SourceItemNotProcessableExtension
      */
     public function processFromString(string $data): string
     {

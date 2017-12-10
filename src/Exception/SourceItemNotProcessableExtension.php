@@ -16,7 +16,7 @@ use Throwable;
  * Exception thrown when a source item is not processable.
  * @package Jdomenechb\BRChain\Exception
  */
-class SourceItemNotProcessable extends BRChainException
+class SourceItemNotProcessableExtension extends BRChainException
 {
     /**
      * SourceItemNotProcessable constructor.
