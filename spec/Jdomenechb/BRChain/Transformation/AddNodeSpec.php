@@ -14,7 +14,6 @@ namespace spec\Jdomenechb\BRChain\Transformation;
 use Jdomenechb\BRChain\Chain\ChainableItemInterface;
 use Jdomenechb\BRChain\Exception\SourceItemNotProcessableExtension;
 use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
-use Jdomenechb\BRChain\Source\SourceItem\XMLSourceItem;
 use Jdomenechb\BRChain\String\StringInterface;
 use Jdomenechb\BRChain\Transformation\AddNode;
 use Jdomenechb\BRChain\Transformation\TransformationInterface;
@@ -58,9 +57,9 @@ class AddNodeSpec extends ObjectBehavior
         $this->shouldThrow(SourceItemNotProcessableExtension::class)->during('process', [$sourceItem]);
     }
 
-    public function it_adds_nodes_to_XMLSourceItems(XMLSourceItem $xmlSourceItem, \DOMElement $node, \DOMNodeList $childNodes)
-    {
-        // TODO: Could not find way to mock DOMNodes
-
-    }
+//    public function it_adds_nodes_to_XMLSourceItems(XMLSourceItem $xmlSourceItem, \DOMElement $node, \DOMNodeList $childNodes)
+//    {
+//        // TODO: Could not find way to mock DOMNodes
+//
+//    }
 }
