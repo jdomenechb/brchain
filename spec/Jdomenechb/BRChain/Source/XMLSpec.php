@@ -14,7 +14,7 @@ namespace spec\Jdomenechb\BRChain\Source;
 use Jdomenechb\BRChain\Chain\ChainableItemInterface;
 use Jdomenechb\BRChain\Chain\ChainContainerItemInterface;
 use Jdomenechb\BRChain\Chain\ChainInterface;
-use Jdomenechb\BRChain\Exception\SourceItemNotProcessable;
+use Jdomenechb\BRChain\Exception\SourceItemNotProcessableExtension;
 use Jdomenechb\BRChain\Source\SourceInterface;
 use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
 use Jdomenechb\BRChain\Source\SourceItem\XMLSourceItem;
@@ -52,7 +52,7 @@ class XMLSpec extends ObjectBehavior
 
     public function it_processes_only_XMLSourceItems(SourceItemInterface $sourceItem)
     {
-        $this->shouldThrow(SourceItemNotProcessable::class)->during('process', [$sourceItem]);
+        $this->shouldThrow(SourceItemNotProcessableExtension::class)->during('process', [$sourceItem]);
     }
 
     public function it_executes_the_contained_chain_on_the_XMLSourceItem(XMLSourceItem $sourceItem, ChainInterface $chain)

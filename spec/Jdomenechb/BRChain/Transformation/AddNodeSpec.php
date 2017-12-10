@@ -12,9 +12,10 @@
 namespace spec\Jdomenechb\BRChain\Transformation;
 
 use Jdomenechb\BRChain\Chain\ChainableItemInterface;
-use Jdomenechb\BRChain\Exception\SourceItemNotProcessable;
+use Jdomenechb\BRChain\Exception\SourceItemNotProcessableExtension;
 use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
 use Jdomenechb\BRChain\Source\SourceItem\XMLSourceItem;
+use Jdomenechb\BRChain\String\StringInterface;
 use Jdomenechb\BRChain\Transformation\AddNode;
 use Jdomenechb\BRChain\Transformation\TransformationInterface;
 use PhpSpec\ObjectBehavior;
@@ -36,21 +37,25 @@ class AddNodeSpec extends ObjectBehavior
         $this->shouldImplement(TransformationInterface::class);
     }
 
-    public function it_accepts_options()
+    public function it_accepts_options(StringInterface $string)
     {
-        $this->setOptions(['nodeName' => 'testNodeName']);
-        $this->getNodeName()->shouldBe('testNodeName');
+        $string->__toString()->willReturn('testNodeName');
+
+        $this->setOptions(['nodeName' => $string]);
+        $this->getNodeName()->shouldBe($string);
     }
 
-    public function it_accepts_options_via_constructor()
+    public function it_accepts_options_via_constructor(StringInterface $string)
     {
-        $this->beConstructedWith(['nodeName' => 'testNodeName']);
-        $this->getNodeName()->shouldBe('testNodeName');
+        $string->__toString()->willReturn('testNodeName');
+
+        $this->beConstructedWith(['nodeName' => $string]);
+        $this->getNodeName()->shouldBe($string);
     }
 
     public function it_processes_only_XMLSourceItems(SourceItemInterface $sourceItem)
     {
-        $this->shouldThrow(SourceItemNotProcessable::class)->during('process', [$sourceItem]);
+        $this->shouldThrow(SourceItemNotProcessableExtension::class)->during('process', [$sourceItem]);
     }
 
     public function it_adds_nodes_to_XMLSourceItems(XMLSourceItem $xmlSourceItem, \DOMElement $node, \DOMNodeList $childNodes)
