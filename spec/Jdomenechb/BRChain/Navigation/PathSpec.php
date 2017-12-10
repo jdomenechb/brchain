@@ -12,9 +12,7 @@
 namespace spec\Jdomenechb\BRChain\Navigation;
 
 use Jdomenechb\BRChain\Chain\Chain;
-use Jdomenechb\BRChain\Chain\ChainableItemInterface;
-use Jdomenechb\BRChain\Chain\ChainContainerItemInterface;
-use Jdomenechb\BRChain\Chain\ChainInterface;
+use Jdomenechb\BRChain\Navigation\AbstractNavigation;
 use Jdomenechb\BRChain\Navigation\Path;
 use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
 use Jdomenechb\BRChain\String\StringInterface;
@@ -27,15 +25,9 @@ class PathSpec extends ObjectBehavior
         $this->shouldHaveType(Path::class);
     }
 
-    public function it_is_chainable()
+    public function it_is_a_common_Navigation_item()
     {
-        $this->shouldImplement(ChainableItemInterface::class);
-    }
-
-    public function it_contains_a_chain()
-    {
-        $this->shouldImplement(ChainContainerItemInterface::class);
-        $this->getChain()->shouldReturnAnInstanceOf(ChainInterface::class);
+        $this->shouldHaveType(AbstractNavigation::class);
     }
 
     public function it_accepts_a_path(StringInterface $path)
@@ -46,7 +38,9 @@ class PathSpec extends ObjectBehavior
         $this->strPath()->shouldReturn('test/path');
     }
 
-    public function it_executes_chain_on_elements_matching_the_path(StringInterface $path, SourceItemInterface $sourceItem, SourceItemInterface $si1, SourceItemInterface $si2, Chain $chain)
+    public function it_executes_chain_on_elements_matching_the_path(
+        StringInterface $path, SourceItemInterface $sourceItem, SourceItemInterface $si1,
+        SourceItemInterface $si2, Chain $chain)
     {
         $path->__toString()->willReturn('/a/b');
         $sourceItem->queryPath('/a/b')->willReturn([$si1, $si2]);

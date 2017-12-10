@@ -11,22 +11,16 @@
 
 namespace Jdomenechb\BRChain\Navigation;
 
-use Jdomenechb\BRChain\CallStringOptionTrait;
-use Jdomenechb\BRChain\Chain\ChainContainerItemTrait;
-use Jdomenechb\BRChain\DynamicOptionsTrait;
 use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
 use Jdomenechb\BRChain\String\StringInterface;
 
 /**
- * Navigator that explores depth structures by providing a path.
+ * Navigator that explores deep structures by providing a path.
  * @package Jdomenechb\BRChain\Navigation
  * @method string strPath()
  */
-class Path implements NavigationInterface
+class Path extends AbstractNavigation
 {
-    use ChainContainerItemTrait;
-    use DynamicOptionsTrait;
-    use CallStringOptionTrait;
 
     /**
      * Path to navigate to.
