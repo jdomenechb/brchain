@@ -11,7 +11,6 @@
 
 namespace Jdomenechb\BRChain\Navigation;
 
-
 use Jdomenechb\BRChain\Chain\ChainableItemInterface;
 use Jdomenechb\BRChain\Chain\ChainContainerItemInterface;
 
