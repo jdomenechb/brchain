@@ -13,6 +13,7 @@ namespace spec\Jdomenechb\BRChain\Chain;
 
 use Jdomenechb\BRChain\Chain\Chain;
 use Jdomenechb\BRChain\Chain\ChainableItemInterface;
+use Jdomenechb\BRChain\Chain\ChainInterface;
 use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
 use PhpSpec\ObjectBehavior;
 
@@ -23,11 +24,27 @@ class ChainSpec extends ObjectBehavior
         $this->shouldHaveType(Chain::class);
     }
 
+    public function it_implements_a_Chain()
+    {
+        $this->shouldImplement(ChainInterface::class);
+    }
+
     public function it_can_add_items(ChainableItemInterface $item1)
     {
         $this->getItems()->shouldBe([]);
         $this->add($item1);
         $this->getItems()->shouldBe([$item1]);
+    }
+
+    public function it_processes_SourceItems_by_executing_its_containing_items(ChainableItemInterface $item1,
+                                                                               ChainableItemInterface $item2, SourceItemInterface $sourceItem)
+    {
+        $item1->process($sourceItem)->shouldBeCalled();
+        $item2->process($sourceItem)->shouldBeCalled();
+
+        $this->add($item1);
+        $this->add($item2);
+        $this->process($sourceItem);
     }
 
     public function it_is_iterable(ChainableItemInterface $item1, ChainableItemInterface $item2)
@@ -47,14 +64,5 @@ class ChainSpec extends ObjectBehavior
         }
     }
 
-    public function it_processes_SourceItems_by_executing_its_containing_items(ChainableItemInterface $item1,
-       ChainableItemInterface $item2, SourceItemInterface $sourceItem)
-    {
-        $item1->process($sourceItem)->shouldBeCalled();
-        $item2->process($sourceItem)->shouldBeCalled();
 
-        $this->add($item1);
-        $this->add($item2);
-        $this->process($sourceItem);
-    }
 }

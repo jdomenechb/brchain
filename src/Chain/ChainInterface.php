@@ -30,4 +30,10 @@ interface ChainInterface
      * @param SourceItemInterface $sourceItem
      */
     public function process(SourceItemInterface $sourceItem) : void;
+
+    /**
+     * Returns the list of items currently in the Chain.
+     * @return ChainableItemInterface[]
+     */
+    public function getItems(): array;
 }

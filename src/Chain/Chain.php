@@ -50,7 +50,7 @@ class Chain implements ChainInterface, \Iterator
     }
 
     /**
-     * @return ChainableItemInterface[]
+     * @inheritdoc
      */
     public function getItems(): array
     {
