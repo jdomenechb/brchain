@@ -11,21 +11,17 @@
 
 namespace Jdomenechb\BRChain\String;
 
+use Jdomenechb\BRChain\PropertyItemInterface;
+
 /**
  * Interface to be implemented by all String items.
  * @package Jdomenechb\BRChain\String
  */
-interface StringInterface
+interface StringInterface extends PropertyItemInterface
 {
     /**
      * Get the string value of the item currently processed
      * @return string
      */
     public function __toString();
-
-    /**
-     * Set options to the item.
-     * @param array $options
-     */
-    public function setOptions(array $options) : void;
 }
