@@ -12,8 +12,6 @@
 namespace Jdomenechb\BRChain\Navigation;
 
 use Jdomenechb\BRChain\CallStringOptionTrait;
-use Jdomenechb\BRChain\Chain\ChainableItemInterface;
-use Jdomenechb\BRChain\Chain\ChainContainerItemInterface;
 use Jdomenechb\BRChain\Chain\ChainContainerItemTrait;
 use Jdomenechb\BRChain\DynamicOptionsTrait;
 use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
@@ -24,7 +22,7 @@ use Jdomenechb\BRChain\String\StringInterface;
  * @package Jdomenechb\BRChain\Navigation
  * @method string strPath()
  */
-class Path implements ChainableItemInterface, ChainContainerItemInterface
+class Path implements NavigationInterface
 {
     use ChainContainerItemTrait;
     use DynamicOptionsTrait;
