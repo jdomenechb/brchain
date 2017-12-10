@@ -1,4 +1,6 @@
 # BRChain
+[![Build Status](https://travis-ci.org/jdomenechb/brchain.svg?branch=master)](https://travis-ci.org/jdomenechb/brchain)
+
 Transformation and validation of data sources using an unified language.
 
 ## Glossary
