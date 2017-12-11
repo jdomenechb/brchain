@@ -29,6 +29,11 @@ class ChainContainerItemTraitSpec extends ObjectBehavior
         $this->getChain()->shouldBe($chain);
     }
 
+    public function it_cannot_accept_anything_other_than_a_Chain()
+    {
+        $this->shouldThrow(\TypeError::class)->during('setChain', ['something not a chain']);
+    }
+
     public function it_can_create_lazily_a_Chain()
     {
         $this->getChain()->shouldReturnAnInstanceOf(ChainInterface::class);
