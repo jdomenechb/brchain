@@ -4,11 +4,11 @@ namespace spec\Jdomenechb\BRChain\Navigation;
 
 use Jdomenechb\BRChain\Chain\ChainableItemInterface;
 use Jdomenechb\BRChain\Chain\ChainContainerItemInterface;
-use Jdomenechb\BRChain\Chain\ChainInterface;
+use Jdomenechb\BRChain\Chain\ChainContainerItemTrait;
 use Jdomenechb\BRChain\Navigation\AbstractNavigation;
 use Jdomenechb\BRChain\Navigation\NavigationInterface;
 use Jdomenechb\BRChain\Stub\Navigation\AbstractNavigationStub;
-use PhpSpec\ObjectBehavior;
+use Jdomenechb\BRChain\Test\ObjectBehavior;
 
 class AbstractNavigationSpec extends ObjectBehavior
 {
@@ -35,7 +35,7 @@ class AbstractNavigationSpec extends ObjectBehavior
     public function it_can_contain_a_chain()
     {
         $this->shouldImplement(ChainContainerItemInterface::class);
-        $this->getChain()->shouldReturnAnInstanceOf(ChainInterface::class);
+        $this->shouldUseTrait(ChainContainerItemTrait::class);
     }
 
     public function it_accepts_options()
