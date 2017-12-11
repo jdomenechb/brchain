@@ -19,7 +19,7 @@ use Jdomenechb\BRChain\Source\SourceInterface;
 use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
 use Jdomenechb\BRChain\Source\SourceItem\XMLSourceItem;
 use Jdomenechb\BRChain\Source\XML;
-use PhpSpec\ObjectBehavior;
+use Jdomenechb\BRChain\Test\ObjectBehavior;
 
 class XMLSpec extends ObjectBehavior
 {

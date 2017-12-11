@@ -14,7 +14,7 @@ namespace spec\Jdomenechb\BRChain\Source\SourceItem;
 
 use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
 use Jdomenechb\BRChain\Source\SourceItem\XMLSourceItem;
-use PhpSpec\ObjectBehavior;
+use Jdomenechb\BRChain\Test\ObjectBehavior;
 
 class XMLSourceItemSpec extends ObjectBehavior
 {

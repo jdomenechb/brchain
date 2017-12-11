@@ -13,7 +13,7 @@ namespace spec\Jdomenechb\BRChain\String;
 
 use Jdomenechb\BRChain\String\Concat;
 use Jdomenechb\BRChain\String\StringInterface;
-use PhpSpec\ObjectBehavior;
+use Jdomenechb\BRChain\Test\ObjectBehavior;
 
 class ConcatSpec extends ObjectBehavior
 {

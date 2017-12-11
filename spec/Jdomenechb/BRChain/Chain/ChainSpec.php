@@ -15,7 +15,7 @@ use Jdomenechb\BRChain\Chain\Chain;
 use Jdomenechb\BRChain\Chain\ChainableItemInterface;
 use Jdomenechb\BRChain\Chain\ChainInterface;
 use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
-use PhpSpec\ObjectBehavior;
+use Jdomenechb\BRChain\Test\ObjectBehavior;
 
 class ChainSpec extends ObjectBehavior
 {

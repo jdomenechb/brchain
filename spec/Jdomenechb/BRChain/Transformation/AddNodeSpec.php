@@ -15,9 +15,9 @@ use Jdomenechb\BRChain\Chain\ChainableItemInterface;
 use Jdomenechb\BRChain\Exception\SourceItemNotProcessableExtension;
 use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
 use Jdomenechb\BRChain\String\StringInterface;
+use Jdomenechb\BRChain\Test\ObjectBehavior;
 use Jdomenechb\BRChain\Transformation\AddNode;
 use Jdomenechb\BRChain\Transformation\TransformationInterface;
-use PhpSpec\ObjectBehavior;
 
 class AddNodeSpec extends ObjectBehavior
 {

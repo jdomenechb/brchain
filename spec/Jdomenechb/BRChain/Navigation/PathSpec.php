@@ -16,7 +16,7 @@ use Jdomenechb\BRChain\Navigation\AbstractNavigation;
 use Jdomenechb\BRChain\Navigation\Path;
 use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
 use Jdomenechb\BRChain\String\StringInterface;
-use PhpSpec\ObjectBehavior;
+use Jdomenechb\BRChain\Test\ObjectBehavior;
 
 class PathSpec extends ObjectBehavior
 {
