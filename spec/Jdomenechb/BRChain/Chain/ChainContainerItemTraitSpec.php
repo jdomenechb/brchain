@@ -11,7 +11,6 @@
 
 namespace spec\Jdomenechb\BRChain\Chain;
 
-
 use Jdomenechb\BRChain\Chain\ChainInterface;
 use Jdomenechb\BRChain\Stub\Chain\ChainContainerItemTraitStub;
 use Jdomenechb\BRChain\Test\ObjectBehavior;

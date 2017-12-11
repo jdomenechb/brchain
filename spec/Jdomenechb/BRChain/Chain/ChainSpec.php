@@ -29,14 +29,19 @@ class ChainSpec extends ObjectBehavior
         $this->shouldImplement(ChainInterface::class);
     }
 
-    public function it_can_add_items(ChainableItemInterface $item1)
+    public function it_can_add_ChainableItems(ChainableItemInterface $item1)
     {
         $this->getItems()->shouldBe([]);
         $this->add($item1);
         $this->getItems()->shouldBe([$item1]);
     }
 
-    public function it_processes_SourceItems_by_executing_its_containing_items(ChainableItemInterface $item1,
+    public function it_cannot_add_other_items_than_ChainableItems()
+    {
+        $this->shouldThrow(\TypeError::class)->during('add', ['not a ChainableItem']);
+    }
+
+    public function its_containing_items_process_the_SourceItem_given_to_the_Chain_to_process(ChainableItemInterface $item1,
        ChainableItemInterface $item2, SourceItemInterface $sourceItem)
     {
         $item1->process($sourceItem)->shouldBeCalled();
@@ -45,6 +50,11 @@ class ChainSpec extends ObjectBehavior
         $this->add($item1);
         $this->add($item2);
         $this->process($sourceItem);
+    }
+
+    public function it_cannot_process_other_items_than_SourceItems()
+    {
+        $this->shouldThrow(\TypeError::class)->during('process', ['not a SourceIem']);
     }
 
     public function it_is_iterable(ChainableItemInterface $item1, ChainableItemInterface $item2)
