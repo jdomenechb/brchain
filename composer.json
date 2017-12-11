@@ -19,7 +19,8 @@
 
     "autoload-dev": {
         "psr-4": {
-            "Jdomenechb\\BRChain\\Stub\\": "stubs/"
+            "Jdomenechb\\BRChain\\Stub\\": "stubs/",
+            "Jdomenechb\\BRChain\\Test\\": "src-test/"
         }
     },
 
