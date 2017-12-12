@@ -24,6 +24,7 @@ trait DynamicOptionsTrait
     /**
      * DynamicOptionsTrait constructor provided to classes.
      * @param array $options
+     * @throws OptionDoesNotExistException
      */
     public function __construct(array $options = [])
     {
