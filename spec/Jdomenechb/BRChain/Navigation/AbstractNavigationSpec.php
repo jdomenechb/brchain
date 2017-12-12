@@ -5,6 +5,7 @@ namespace spec\Jdomenechb\BRChain\Navigation;
 use Jdomenechb\BRChain\Chain\ChainableItemInterface;
 use Jdomenechb\BRChain\Chain\ChainContainerItemInterface;
 use Jdomenechb\BRChain\Chain\ChainContainerItemTrait;
+use Jdomenechb\BRChain\DynamicOptionsTrait;
 use Jdomenechb\BRChain\Navigation\AbstractNavigation;
 use Jdomenechb\BRChain\Navigation\NavigationInterface;
 use Jdomenechb\BRChain\Stub\Navigation\AbstractNavigationStub;
@@ -17,7 +18,7 @@ class AbstractNavigationSpec extends ObjectBehavior
         $this->beAnInstanceOf(AbstractNavigationStub::class);
     }
 
-    public function it_is_initializable()
+    public function its_stub_extends_the_abstract_class()
     {
         $this->shouldHaveType(AbstractNavigation::class);
     }
@@ -38,21 +39,8 @@ class AbstractNavigationSpec extends ObjectBehavior
         $this->shouldUseTrait(ChainContainerItemTrait::class);
     }
 
-    public function it_accepts_options()
+    public function it_accepts_dynamic_options()
     {
-        $this->setOptions(['optionToCheck' => 2]);
-        $this->getOptionToCheck()->shouldBe(2);
-    }
-
-    public function it_accepts_options_via_constructor()
-    {
-        $this->beConstructedWith(['optionToCheck' => 2]);
-        $this->getOptionToCheck()->shouldBe(2);
-    }
-
-    public function it_can_return_options_as_string()
-    {
-        $this->setOptions(['optionToCheck' => 2]);
-        $this->strOptionToCheck()->shouldBe('2');
+        $this->shouldUseTrait(DynamicOptionsTrait::class);
     }
 }

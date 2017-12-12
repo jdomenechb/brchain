@@ -12,35 +12,15 @@
 namespace Jdomenechb\BRChain\Stub\Navigation;
 
 
+use Jdomenechb\BRChain\Navigation\AbstractNavigation;
 use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
 
 /**
  * Stub class for checking AbstractNavigator
  * @package Jdomenechb\BRChain\Stub\Navigation
  */
-class AbstractNavigationStub extends \Jdomenechb\BRChain\Navigation\AbstractNavigation
+class AbstractNavigationStub extends AbstractNavigation
 {
-    /**
-     * @var int
-     */
-    protected $optionToCheck;
-
-    /**
-     * @return int
-     */
-    public function getOptionToCheck() : int
-    {
-        return $this->optionToCheck;
-    }
-
-    /**
-     * @param int $optionToCheck
-     */
-    public function setOptionToCheck(int $optionToCheck): void
-    {
-        $this->optionToCheck = $optionToCheck;
-    }
-
     public function process(SourceItemInterface $sourceItem): void
     {
         // Nothing

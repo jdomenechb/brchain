@@ -15,7 +15,6 @@ namespace Jdomenechb\BRChain\Navigation;
 use Jdomenechb\BRChain\CallStringOptionTrait;
 use Jdomenechb\BRChain\Chain\ChainContainerItemTrait;
 use Jdomenechb\BRChain\DynamicOptionsTrait;
-use Jdomenechb\BRChain\Exception\OptionDoesNotExistException;
 
 /**
  * Abstract Navigation class implementing the most common methods a Navigation item must have.
@@ -26,14 +25,4 @@ abstract class AbstractNavigation implements NavigationInterface
     use DynamicOptionsTrait;
     use CallStringOptionTrait;
     use ChainContainerItemTrait;
-
-    /**
-     * AbstractNavigation constructor.
-     * @param array $options
-     * @throws OptionDoesNotExistException
-     */
-    public function __construct(array $options = [])
-    {
-        $this->setOptions($options);
-    }
 }
