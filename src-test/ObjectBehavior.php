@@ -14,6 +14,7 @@ namespace Jdomenechb\BRChain\Test;
 /**
  * Class extending the default ObjectBehaviour to provide more matchers.
  * @package Jdomenechb\BRChain\Test
+ * @method shouldUseTrait(string $trait)
  */
 class ObjectBehavior extends \PhpSpec\ObjectBehavior
 {
