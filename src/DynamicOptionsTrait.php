@@ -15,11 +15,23 @@ use Jdomenechb\BRChain\Chain\ChainableItemInterface;
 use Jdomenechb\BRChain\Exception\OptionDoesNotExistException;
 
 /**
- * Trait for dynamically setting options to objects, depending on the public getters and setters.
+ * Trait for dynamically setting options to objects, depending on the public getters and setters. Provides also a
+ * constructor that accepts options.
  * @package Jdomenechb\BRChain
  */
 trait DynamicOptionsTrait
 {
+    /**
+     * DynamicOptionsTrait constructor provided to classes.
+     * @param array $options
+     */
+    public function __construct(array $options = [])
+    {
+        if ($options) {
+            $this->setOptions($options);
+        }
+    }
+
     /**
      * Sets each option given to the object if its getter, setter and property exist.
      * @param array $options
