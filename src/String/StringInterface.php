@@ -19,9 +19,5 @@ use Jdomenechb\BRChain\PropertyItemInterface;
  */
 interface StringInterface extends PropertyItemInterface
 {
-    /**
-     * Get the string value of the item currently processed
-     * @return string
-     */
-    public function __toString();
+
 }
