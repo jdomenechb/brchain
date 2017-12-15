@@ -47,8 +47,8 @@ trait DynamicOptionsTrait
 
             if (
                 !property_exists($this, $optionName)
-                || (!method_exists($this, $getterName) && !method_exists($this, $isMethodName))
                 || !method_exists($this, $setterName)
+                || (!method_exists($this, $getterName) && !method_exists($this, $isMethodName))
             ) {
                 /** @var $this ChainableItemInterface */
                 throw new OptionDoesNotExistException($optionName, \get_class($this));
