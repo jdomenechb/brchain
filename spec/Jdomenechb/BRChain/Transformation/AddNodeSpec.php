@@ -13,7 +13,7 @@ namespace spec\Jdomenechb\BRChain\Transformation;
 
 use Jdomenechb\BRChain\Chain\ChainableItemInterface;
 use Jdomenechb\BRChain\Exception\SourceItemNotProcessableExtension;
-use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
+use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
 use Jdomenechb\BRChain\String\StringInterface;
 use Jdomenechb\BRChain\Test\ObjectBehavior;
 use Jdomenechb\BRChain\Transformation\AddNode;

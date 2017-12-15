@@ -10,10 +10,10 @@
  */
 
 
-namespace spec\Jdomenechb\BRChain\Source\SourceItem;
+namespace spec\Jdomenechb\BRChain\SourceItem;
 
-use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
-use Jdomenechb\BRChain\Source\SourceItem\XMLSourceItem;
+use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
+use Jdomenechb\BRChain\SourceItem\XMLSourceItem;
 use Jdomenechb\BRChain\Test\ObjectBehavior;
 
 class XMLSourceItemSpec extends ObjectBehavior

@@ -11,7 +11,7 @@
 
 namespace Jdomenechb\BRChain\Chain;
 
-use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
+use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
 
 /**
  * Interface that will implement all classes referring to a Chain.

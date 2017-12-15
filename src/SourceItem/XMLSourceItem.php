@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Jdomenechb\BRChain\Source\SourceItem;
+namespace Jdomenechb\BRChain\SourceItem;
 
 /**
  * SourceItem that represents an XML node.
- * @package Jdomenechb\BRChain\Source\SourceItem
+ * @package Jdomenechb\BRChain\SourceItem
  */
 class XMLSourceItem implements SourceItemInterface
 {

@@ -11,7 +11,7 @@
 
 namespace Jdomenechb\BRChain\Chain;
 
-use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
+use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
 
 /**
  * Chain containing all items to be applied in the SourceItem processed by the parent Item.

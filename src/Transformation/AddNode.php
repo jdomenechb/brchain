@@ -15,8 +15,8 @@ use Jdomenechb\BRChain\CallStringOptionTrait;
 use Jdomenechb\BRChain\DynamicOptionsTrait;
 use Jdomenechb\BRChain\Exception\OptionDoesNotExistException;
 use Jdomenechb\BRChain\Exception\SourceItemNotProcessableExtension;
-use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
-use Jdomenechb\BRChain\Source\SourceItem\XMLSourceItem;
+use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
+use Jdomenechb\BRChain\SourceItem\XMLSourceItem;
 use Jdomenechb\BRChain\String\StringInterface;
 
 /**

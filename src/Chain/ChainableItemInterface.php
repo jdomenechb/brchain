@@ -12,7 +12,7 @@
 namespace Jdomenechb\BRChain\Chain;
 
 use Jdomenechb\BRChain\ItemInterface;
-use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
+use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
 
 /**
  * Interface that must be implemented in all items that can be contained in a chain.

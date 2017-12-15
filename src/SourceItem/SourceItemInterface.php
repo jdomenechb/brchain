@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Jdomenechb\BRChain\Source\SourceItem;
+namespace Jdomenechb\BRChain\SourceItem;
 
 /**
  * Interface to be implemented by all SourceItems.
- * @package Jdomenechb\BRChain\Source\SourceItem
+ * @package Jdomenechb\BRChain\SourceItem
  */
 interface SourceItemInterface
 {

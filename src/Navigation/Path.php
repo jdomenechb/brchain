@@ -11,7 +11,7 @@
 
 namespace Jdomenechb\BRChain\Navigation;
 
-use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
+use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
 use Jdomenechb\BRChain\String\StringInterface;
 
 /**

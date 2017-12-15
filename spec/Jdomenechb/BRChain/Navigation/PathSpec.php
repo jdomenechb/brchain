@@ -14,7 +14,7 @@ namespace spec\Jdomenechb\BRChain\Navigation;
 use Jdomenechb\BRChain\Chain\Chain;
 use Jdomenechb\BRChain\Navigation\AbstractNavigation;
 use Jdomenechb\BRChain\Navigation\Path;
-use Jdomenechb\BRChain\Source\SourceItem\SourceItemInterface;
+use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
 use Jdomenechb\BRChain\String\StringInterface;
 use Jdomenechb\BRChain\Test\ObjectBehavior;
 
