@@ -24,6 +24,11 @@ class DynamicOptionsTraitStub
     protected $optionToCheck;
 
     /**
+     * @var bool
+     */
+    protected $checked = false;
+
+    /**
      * @return int
      */
     public function getOptionToCheck() : int
@@ -37,5 +42,21 @@ class DynamicOptionsTraitStub
     public function setOptionToCheck(int $optionToCheck): void
     {
         $this->optionToCheck = $optionToCheck;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isChecked(): bool
+    {
+        return $this->checked;
+    }
+
+    /**
+     * @param bool $checked
+     */
+    public function setChecked(bool $checked): void
+    {
+        $this->checked = $checked;
     }
 }

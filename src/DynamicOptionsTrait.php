@@ -42,11 +42,12 @@ trait DynamicOptionsTrait
     {
         foreach ($options as $optionName => $optionValue) {
             $getterName = 'get' . ucfirst($optionName);
+            $isMethodName = 'is' . ucfirst($optionName);
             $setterName = 'set' . ucfirst($optionName);
 
             if (
                 !property_exists($this, $optionName)
-                || !method_exists($this, $getterName)
+                || (!method_exists($this, $getterName) && !method_exists($this, $isMethodName))
                 || !method_exists($this, $setterName)
             ) {
                 /** @var $this ChainableItemInterface */

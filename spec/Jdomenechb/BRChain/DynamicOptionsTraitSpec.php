@@ -13,10 +13,17 @@ class DynamicOptionsTraitSpec extends ObjectBehavior
         $this->beAnInstanceOf(DynamicOptionsTraitStub::class);
     }
 
-    public function it_accepts_options_via_setOptions()
+    public function it_accepts_options_via_setOptions_for_get_methods()
     {
         $this->setOptions(['optionToCheck' => 2]);
         $this->getOptionToCheck()->shouldBe(2);
+    }
+
+    public function it_accepts_options_via_setOptions_for_is_methods()
+    {
+        $this->setChecked(false);
+        $this->setOptions(['checked' => true]);
+        $this->isChecked()->shouldBe(true);
     }
 
     public function it_does_not_accept_an_undefined_option()
