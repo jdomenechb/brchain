@@ -25,7 +25,7 @@ interface ConditionInterface extends ChainableItemInterface, ChainContainerItemI
     /**
      * Checks if the current SourceItem satisfies the condition.
      * @param SourceItemInterface $sourceItem
-     * @return mixed
+     * @return bool
      */
-    public function evaluate(SourceItemInterface $sourceItem);
+    public function evaluate(SourceItemInterface $sourceItem) : bool;
 }
