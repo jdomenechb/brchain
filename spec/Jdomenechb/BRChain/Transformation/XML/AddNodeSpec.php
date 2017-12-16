@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace spec\Jdomenechb\BRChain\Transformation;
+namespace spec\Jdomenechb\BRChain\Transformation\XML;
 
 use Jdomenechb\BRChain\Chain\ChainableItemInterface;
 use Jdomenechb\BRChain\Exception\SourceItemNotProcessableExtension;
 use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
 use Jdomenechb\BRChain\String\StringInterface;
 use Jdomenechb\BRChain\Test\ObjectBehavior;
-use Jdomenechb\BRChain\Transformation\AddNode;
 use Jdomenechb\BRChain\Transformation\TransformationInterface;
+use Jdomenechb\BRChain\Transformation\XML\AddNode;
 
 class AddNodeSpec extends ObjectBehavior
 {

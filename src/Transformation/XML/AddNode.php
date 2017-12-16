@@ -9,12 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Jdomenechb\BRChain\Transformation;
+namespace Jdomenechb\BRChain\Transformation\XML;
 
 use Jdomenechb\BRChain\Exception\SourceItemNotProcessableExtension;
 use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
 use Jdomenechb\BRChain\SourceItem\XMLSourceItem;
 use Jdomenechb\BRChain\String\StringInterface;
+use Jdomenechb\BRChain\Transformation\AbstractTransformation;
 
 /**
  * Adds a node into an XML source.
