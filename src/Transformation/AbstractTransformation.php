@@ -16,6 +16,10 @@ use Jdomenechb\BRChain\CallStringOptionTrait;
 use Jdomenechb\BRChain\Chain\ChainContainerItemTrait;
 use Jdomenechb\BRChain\DynamicOptionsTrait;
 
+/**
+ * Abstract Transformation class implementing the most common methods a Transformation item must have.
+ * @package Jdomenechb\BRChain\Transformation
+ */
 abstract class AbstractTransformation implements TransformationInterface
 {
     use DynamicOptionsTrait;
