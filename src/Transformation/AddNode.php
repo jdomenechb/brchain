@@ -11,9 +11,6 @@
 
 namespace Jdomenechb\BRChain\Transformation;
 
-use Jdomenechb\BRChain\CallStringOptionTrait;
-use Jdomenechb\BRChain\DynamicOptionsTrait;
-use Jdomenechb\BRChain\Exception\OptionDoesNotExistException;
 use Jdomenechb\BRChain\Exception\SourceItemNotProcessableExtension;
 use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
 use Jdomenechb\BRChain\SourceItem\XMLSourceItem;
@@ -25,10 +22,8 @@ use Jdomenechb\BRChain\String\StringInterface;
  * @method string strNodeName()
  * @method string strValue()
  */
-class AddNode implements TransformationInterface
+class AddNode extends AbstractTransformation
 {
-    use DynamicOptionsTrait;
-    use CallStringOptionTrait;
 
     /**
      * Name of the node to be created (required).
@@ -41,16 +36,6 @@ class AddNode implements TransformationInterface
      * @var StringInterface
      */
     protected $value;
-
-    /**
-     * AddNode constructor.
-     * @param array $options
-     * @throws OptionDoesNotExistException
-     */
-    public function __construct(array $options = [])
-    {
-        $this->setOptions($options);
-    }
 
     /**
      * @inheritdoc
