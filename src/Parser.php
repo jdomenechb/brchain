@@ -14,6 +14,7 @@ namespace Jdomenechb\BRChain;
 use Jdomenechb\BRChain\Chain\Chain;
 use Jdomenechb\BRChain\Chain\ChainableItemInterface;
 use Jdomenechb\BRChain\Chain\ChainContainerItemInterface;
+use Jdomenechb\BRChain\Condition\ConditionInterface;
 use Jdomenechb\BRChain\Exception\OptionDoesNotExistException;
 use Jdomenechb\BRChain\Exception\Parser\MissingParameterException;
 use Jdomenechb\BRChain\Exception\Parser\NotASourceException;
@@ -108,10 +109,27 @@ class Parser
         $typeNamespace = static::$itemTypes[$type];
 
         $itemClass = $typeNamespace . '\\' . $name;
+        $isNegated = false;
 
         // Check class existance
         if (!class_exists($itemClass) || !class_implements($itemClass, ChainableItemInterface::class)) {
-            throw new UnknownNameException($type, $name, $data);
+            if (!preg_match('#^Not(.*)$#', $name, $match)) {
+                throw new UnknownNameException($type, $name, $data);
+            }
+
+            $itemClass = $typeNamespace . '\\' . $match[1];
+            $isNegated = true;
+
+            if (
+                !class_exists($itemClass)
+                || !class_implements($itemClass, ChainableItemInterface::class)
+                || (
+                    !class_implements($itemClass, ConditionInterface::class)
+                    //&& !class_implements($itemClass, ValidatorInterface::class)
+                )
+            ) {
+                throw new UnknownNameException($type, $name, $data);
+            }
         }
 
         // Create instance of item object
@@ -137,6 +155,11 @@ class Parser
         }
 
         unset($dataValue);
+
+        // Set negated
+        if ($isNegated) {
+            $itemClass->setNegated(!$itemClass->getNegted());
+        }
 
         // Set options to item object
         $obj->setOptions($data);
