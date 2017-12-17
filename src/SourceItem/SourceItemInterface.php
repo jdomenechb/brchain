@@ -23,4 +23,6 @@ interface SourceItemInterface
      * @return SourceItemInterface[]|null
      */
     public function queryPath(string $path): array;
+
+    public function getValue() : string;
 }

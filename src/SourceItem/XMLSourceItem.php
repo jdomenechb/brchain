@@ -98,4 +98,8 @@ class XMLSourceItem implements SourceItemInterface
         return $this->domXPath;
     }
 
+    public function getValue(): string
+    {
+        return $this->data->nodeValue;
+    }
 }
