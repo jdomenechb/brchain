@@ -14,13 +14,14 @@ namespace Jdomenechb\BRChain\Condition;
 
 use Jdomenechb\BRChain\Chain\ChainableItemInterface;
 use Jdomenechb\BRChain\Chain\ChainContainerItemInterface;
+use Jdomenechb\BRChain\NegatedItemInterface;
 use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
 
 /**
  * Interface to be implemented by all Condition items.
  * @package Jdomenechb\BRChain\Condition
  */
-interface ConditionInterface extends ChainableItemInterface, ChainContainerItemInterface
+interface ConditionInterface extends ChainableItemInterface, ChainContainerItemInterface, NegatedItemInterface
 {
     /**
      * Checks if the current SourceItem satisfies the condition.

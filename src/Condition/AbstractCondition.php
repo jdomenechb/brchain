@@ -34,7 +34,7 @@ abstract class AbstractCondition implements ConditionInterface
     protected $negated = false;
 
     /**
-     * @return bool
+     * @inheritdoc
      */
     public function isNegated(): bool
     {
@@ -42,7 +42,7 @@ abstract class AbstractCondition implements ConditionInterface
     }
 
     /**
-     * @param bool $negated
+     * @inheritdoc
      */
     public function setNegated(bool $negated): void
     {
