@@ -24,5 +24,9 @@ interface SourceItemInterface
      */
     public function queryPath(string $path): array;
 
+    /**
+     * Get the value or string representation of the SourceItem.
+     * @return string
+     */
     public function getValue() : string;
 }

@@ -98,6 +98,9 @@ class XMLSourceItem implements SourceItemInterface
         return $this->domXPath;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function getValue(): string
     {
         return $this->data->nodeValue;
