@@ -15,7 +15,6 @@ use Jdomenechb\BRChain\Exception\OptionDoesNotExistException;
 
 /**
  * String that represents simple values.
- * @package Jdomenechb\BRChain\String
  */
 class Value extends AbstractString
 {
@@ -25,8 +24,18 @@ class Value extends AbstractString
     protected $value;
 
     /**
+     * {@inheritdoc}
+     */
+    public function __toString()
+    {
+        return $this->getValue();
+    }
+
+    /**
      * Value constructor.
+     *
      * @param array $options
+     *
      * @throws OptionDoesNotExistException
      */
 
@@ -44,13 +53,5 @@ class Value extends AbstractString
     public function setValue(string $value): void
     {
         $this->value = $value;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function __toString()
-    {
-        return $this->getValue();
     }
 }

@@ -13,24 +13,24 @@ namespace Jdomenechb\BRChain\Chain;
 
 /**
  * Trait providing a ChainContainerItem the usual method that should be implemented already implemented.
- * @package Jdomenechb\BRChain\Chain
  */
 trait ChainContainerItemTrait
 {
     /**
      * Chain contained in the item.
+     *
      * @var Chain
      */
     protected $chain;
 
-
     /**
      * Returns the chain contained in the item.
+     *
      * @return Chain
      */
-    public function getChain() : ChainInterface
+    public function getChain(): ChainInterface
     {
-        if ($this->chain === null) {
+        if (null === $this->chain) {
             $this->chain = new Chain();
         }
 
@@ -39,9 +39,10 @@ trait ChainContainerItemTrait
 
     /**
      * Sets the chain to be contained in the item.
+     *
      * @param ChainInterface $chain
      */
-    public function setChain(ChainInterface $chain) : void
+    public function setChain(ChainInterface $chain): void
     {
         $this->chain = $chain;
     }

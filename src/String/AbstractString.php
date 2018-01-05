@@ -17,7 +17,6 @@ use Jdomenechb\BRChain\Exception\OptionDoesNotExistException;
 
 /**
  * Class that implements basic methods that almost all strings should follow.
- * @package Jdomenechb\BRChain\String
  */
 abstract class AbstractString implements StringInterface
 {
@@ -26,7 +25,9 @@ abstract class AbstractString implements StringInterface
 
     /**
      * AbstractString constructor.
+     *
      * @param array $options
+     *
      * @throws OptionDoesNotExistException
      */
     public function __construct(array $options = [])

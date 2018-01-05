@@ -9,7 +9,6 @@
  * file that was distributed with this source code.
  */
 
-
 namespace spec\Jdomenechb\BRChain\SourceItem;
 
 use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
@@ -84,7 +83,7 @@ class XMLSourceItemSpec extends ObjectBehavior
                 }
 
                 return true;
-            }
+            },
         ];
     }
 }

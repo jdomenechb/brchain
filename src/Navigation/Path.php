@@ -16,14 +16,14 @@ use Jdomenechb\BRChain\String\StringInterface;
 
 /**
  * Navigator that explores deep structures by providing a path.
- * @package Jdomenechb\BRChain\Navigation
+ *
  * @method string strPath()
  */
 class Path extends AbstractNavigation
 {
-
     /**
      * Path to navigate to.
+     *
      * @var StringInterface
      */
     protected $path;
@@ -45,7 +45,7 @@ class Path extends AbstractNavigation
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function process(SourceItemInterface $sourceItem): void
     {

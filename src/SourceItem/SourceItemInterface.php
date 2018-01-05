@@ -13,20 +13,22 @@ namespace Jdomenechb\BRChain\SourceItem;
 
 /**
  * Interface to be implemented by all SourceItems.
- * @package Jdomenechb\BRChain\SourceItem
  */
 interface SourceItemInterface
 {
     /**
      * Given a path, tries to obtain the elements that match the path.
+     *
      * @param string $path
+     *
      * @return SourceItemInterface[]|null
      */
     public function queryPath(string $path): array;
 
     /**
      * Get the value or string representation of the SourceItem.
+     *
      * @return string
      */
-    public function getValue() : string;
+    public function getValue(): string;
 }

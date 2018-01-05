@@ -21,7 +21,8 @@ interface ChainableItemInterface extends ItemInterface
 {
     /**
      * Execute the operations this item performs on the given SourceItem.
+     *
      * @param SourceItemInterface $sourceItem
      */
-    public function process(SourceItemInterface $sourceItem) : void;
+    public function process(SourceItemInterface $sourceItem): void;
 }

@@ -15,24 +15,26 @@ use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
 
 /**
  * Interface that will implement all classes referring to a Chain.
- * @package Jdomenechb\BRChain
  */
 interface ChainInterface
 {
     /**
      * Adds an item to the chain.
+     *
      * @param ChainableItemInterface $item
      */
     public function add(ChainableItemInterface $item): void;
 
     /**
      * Execute all the operations of the items contained in this chain on the given SourceItem.
+     *
      * @param SourceItemInterface $sourceItem
      */
-    public function process(SourceItemInterface $sourceItem) : void;
+    public function process(SourceItemInterface $sourceItem): void;
 
     /**
      * Returns the list of items currently in the Chain.
+     *
      * @return ChainableItemInterface[]
      */
     public function getItems(): array;

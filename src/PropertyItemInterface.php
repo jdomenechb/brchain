@@ -13,12 +13,12 @@ namespace Jdomenechb\BRChain;
 
 /**
  * Interface to be implemented by all items that belong to a property of another item.
- * @package Jdomenechb\BRChain
  */
 interface PropertyItemInterface extends ItemInterface
 {
     /**
-     * Get the string value of the item currently processed
+     * Get the string value of the item currently processed.
+     *
      * @return string
      */
     public function __toString();

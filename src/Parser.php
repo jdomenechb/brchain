@@ -24,7 +24,6 @@ use Jdomenechb\BRChain\String\Value;
 
 /**
  * Takes an array of data potentially translatable to a chain definition, and returns the resulting chain.
- * @package Jdomenechb\BRChain
  */
 class Parser
 {
@@ -37,6 +36,7 @@ class Parser
 
     /**
      * Types of items available for processing.
+     *
      * @var string[]
      */
     protected static $itemTypes = [
@@ -50,6 +50,7 @@ class Parser
 
     /**
      * Types of PropertyItems available for processing.
+     *
      * @var string[]
      */
     protected static $propertyItemTypes = [
@@ -58,25 +59,30 @@ class Parser
 
     /**
      * Checks if the array could be parsed as a ChainableItem.
+     *
      * @param array $data
+     *
      * @return bool
      */
-    public function isParseableChainableItem(array $data) : bool
+    public function isParseableChainableItem(array $data): bool
     {
         return isset($data[static::DATA_TYPE], $data[static::DATA_NAME], static::$itemTypes[$data[static::DATA_TYPE]]);
     }
 
     /**
      * Parse the given Source data array to create a SourceInterface object from the information.
+     *
      * @param array $data
-     * @return SourceInterface
+     *
      * @throws MissingParameterException
      * @throws UnknownTypeException
      * @throws UnknownNameException
      * @throws NotASourceException
      * @throws OptionDoesNotExistException
+     *
+     * @return SourceInterface
      */
-    public function parseSource(array $data) : SourceInterface
+    public function parseSource(array $data): SourceInterface
     {
         $obj = $this->parseChainableItem($data);
 
@@ -89,14 +95,17 @@ class Parser
 
     /**
      * Parse the given data array to create a ChainableItem from the information.
+     *
      * @param array $data
-     * @return ChainableItemInterface
+     *
      * @throws MissingParameterException
      * @throws UnknownTypeException
      * @throws UnknownNameException
      * @throws OptionDoesNotExistException
+     *
+     * @return ChainableItemInterface
      */
-    public function parseChainableItem(array $data) : ChainableItemInterface
+    public function parseChainableItem(array $data): ChainableItemInterface
     {
         ['type' => $type, 'name' => $name] = $this->obtainTypeAndName($data);
 
@@ -130,7 +139,7 @@ class Parser
 
         // Create instance of item object
         /** @var ChainableItemInterface $obj */
-        $obj = new $itemClass;
+        $obj = new $itemClass();
 
         // Parse chain
         if ($obj instanceof ChainContainerItemInterface) {
@@ -154,7 +163,7 @@ class Parser
 
         // Set negated
         if ($isNegated) {
-            /** @var NegatedItemInterface $itemClass */
+            /* @var NegatedItemInterface $itemClass */
             $itemClass->setNegated(!$itemClass->isNegated());
         }
 
@@ -166,17 +175,20 @@ class Parser
 
     /**
      * Parses the chain contained in data array to the object that can contain a chain.
+     *
      * @param ChainContainerItemInterface $obj
-     * @param array $data
+     * @param array                       $data
+     *
      * @throws MissingParameterException
      * @throws UnknownTypeException
      * @throws OptionDoesNotExistException
      * @throws UnknownNameException
      */
-    protected function parseChain(ChainContainerItemInterface $obj, array &$data) : void
+    protected function parseChain(ChainContainerItemInterface $obj, array &$data): void
     {
         if (empty($data[static::DATA_CHAIN])) {
             unset($data[static::DATA_CHAIN]);
+
             return;
         }
 
@@ -195,14 +207,17 @@ class Parser
 
     /**
      * Parse the given data array to create a PropertyItem from the information.
+     *
      * @param array $data
-     * @return PropertyItemInterface
+     *
      * @throws MissingParameterException
      * @throws UnknownTypeException
      * @throws UnknownNameException
      * @throws OptionDoesNotExistException
+     *
+     * @return PropertyItemInterface
      */
-    protected function parsePropertyItem(array $data) : PropertyItemInterface
+    protected function parsePropertyItem(array $data): PropertyItemInterface
     {
         ['type' => $type, 'name' => $name] = $this->obtainTypeAndName($data);
 
@@ -222,7 +237,7 @@ class Parser
 
         // Create instance of item object
         /** @var PropertyItemInterface $obj */
-        $obj = new $itemClass;
+        $obj = new $itemClass();
 
         // Parse chain
         if ($obj instanceof ChainContainerItemInterface) {
@@ -252,10 +267,12 @@ class Parser
 
     /**
      * Checks if the array could be parsed as a PropertyItem.
+     *
      * @param array $data
+     *
      * @return bool
      */
-    protected function isParseablePropertyItem(array $data) : bool
+    protected function isParseablePropertyItem(array $data): bool
     {
         return isset(
             $data[static::DATA_TYPE],
@@ -266,11 +283,14 @@ class Parser
 
     /**
      * From the given array of information, obtains the type and the name, and deletes them from the source array.
+     *
      * @param array $data
-     * @return string[]
+     *
      * @throws MissingParameterException
+     *
+     * @return string[]
      */
-    protected function obtainTypeAndName(array &$data) : array
+    protected function obtainTypeAndName(array &$data): array
     {
         // Check if type is present
         if (!isset($data[static::DATA_TYPE])) {

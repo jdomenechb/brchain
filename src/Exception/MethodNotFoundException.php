@@ -10,18 +10,19 @@
  */
 
 namespace Jdomenechb\BRChain\Exception;
+
 use Throwable;
 
 /**
  * Exception thrown when a method has not been found.
- * @package Jdomenechb\BRChain\Exception
  */
 class MethodNotFoundException extends BRChainException
 {
     /**
      * MethodNotFoundException constructor.
-     * @param string $methodName
-     * @param string $className
+     *
+     * @param string         $methodName
+     * @param string         $className
      * @param Throwable|null $previous
      */
     public function __construct(string $methodName, string $className, Throwable $previous = null)

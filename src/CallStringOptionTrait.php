@@ -15,20 +15,22 @@ use Jdomenechb\BRChain\Exception\MethodNotFoundException;
 
 /**
  * Trait providing a __call magic method to the class in order to be able to access as string to every property.
- * @package Jdomenechb\BRChain
  */
 trait CallStringOptionTrait
 {
     /**
      * Magic method __call to be able to return as string any option.
+     *
      * @param $name
      * @param $arguments
-     * @return string
+     *
      * @throws MethodNotFoundException
+     *
+     * @return string
      */
     public function __call($name, $arguments)
     {
-        if (!strpos($name, 'str') === 0) {
+        if (0 === !strpos($name, 'str')) {
             throw new MethodNotFoundException($name, static::class);
         }
 

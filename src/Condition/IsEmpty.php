@@ -11,23 +11,20 @@
 
 namespace Jdomenechb\BRChain\Condition;
 
-
 use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
 
 /**
  * Executes the containing chain if the value is empty.
- * @package Jdomenechb\BRChain\Condition
  */
 class IsEmpty extends AbstractCondition
 {
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
-    public function evaluate(SourceItemInterface $sourceItem) : bool
+    public function evaluate(SourceItemInterface $sourceItem): bool
     {
         $value = $sourceItem->getValue();
 
-        return $value === '';
+        return '' === $value;
     }
 }

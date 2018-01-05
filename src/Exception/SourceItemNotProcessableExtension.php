@@ -10,18 +10,19 @@
  */
 
 namespace Jdomenechb\BRChain\Exception;
+
 use Throwable;
 
 /**
  * Exception thrown when a source item is not processable.
- * @package Jdomenechb\BRChain\Exception
  */
 class SourceItemNotProcessableExtension extends BRChainException
 {
     /**
      * SourceItemNotProcessable constructor.
-     * @param string $wrongSourceItemClassName
-     * @param string $itemName
+     *
+     * @param string         $wrongSourceItemClassName
+     * @param string         $itemName
      * @param Throwable|null $previous
      */
     public function __construct(string $wrongSourceItemClassName, string $itemName, Throwable $previous = null)

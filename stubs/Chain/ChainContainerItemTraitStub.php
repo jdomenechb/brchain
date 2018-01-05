@@ -11,12 +11,10 @@
 
 namespace Jdomenechb\BRChain\Stub\Chain;
 
-
 use Jdomenechb\BRChain\Chain\ChainContainerItemTrait;
 
 /**
  * Stub for testing ChainContainerItemTrait.
- * @package Jdomenechb\BRChain\Stub\Chain
  */
 class ChainContainerItemTraitStub
 {

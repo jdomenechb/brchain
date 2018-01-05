@@ -13,21 +13,23 @@ namespace Jdomenechb\BRChain;
 
 /**
  * Interface that all Items should implement.
- * @package Jdomenechb\BRChain
  */
 interface ItemInterface
 {
     /**
-     * Set options to the item.
-     * @param array $options
-     */
-    public function setOptions(array $options) : void;
-
-    /**
      * Magic method __call.
+     *
      * @param $name
      * @param $arguments
+     *
      * @return mixed
      */
     public function __call($name, $arguments);
+
+    /**
+     * Set options to the item.
+     *
+     * @param array $options
+     */
+    public function setOptions(array $options): void;
 }

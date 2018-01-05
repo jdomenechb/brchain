@@ -10,17 +10,18 @@
  */
 
 namespace Jdomenechb\BRChain\Exception\Parser;
+
 use Throwable;
 
 /**
- * Exception to be thrown when the type parameter is missing-
- * @package Jdomenechb\BRChain\Exception\Parser
+ * Exception to be thrown when the type parameter is missing-.
  */
 class MissingTypeParameterException extends MissingParameterException
 {
     /**
      * MissingParameterException constructor.
-     * @param array $context
+     *
+     * @param array          $context
      * @param Throwable|null $previous
      */
     public function __construct(array $context, Throwable $previous = null)

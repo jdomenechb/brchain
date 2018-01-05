@@ -15,9 +15,7 @@ use Jdomenechb\BRChain\Chain\ChainableItemInterface;
 
 /**
  * Interface to be implemented by all transformations.
- * @package Jdomenechb\BRChain\Transformation
  */
 interface TransformationInterface extends ChainableItemInterface
 {
-
 }

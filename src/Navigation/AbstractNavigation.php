@@ -11,14 +11,12 @@
 
 namespace Jdomenechb\BRChain\Navigation;
 
-
 use Jdomenechb\BRChain\CallStringOptionTrait;
 use Jdomenechb\BRChain\Chain\ChainContainerItemTrait;
 use Jdomenechb\BRChain\DynamicOptionsTrait;
 
 /**
  * Abstract Navigation class implementing the most common methods a Navigation item must have.
- * @package Jdomenechb\BRChain\Navigation
  */
 abstract class AbstractNavigation implements NavigationInterface
 {

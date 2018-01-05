@@ -11,7 +11,6 @@
 
 namespace Jdomenechb\BRChain\Condition;
 
-
 use Jdomenechb\BRChain\CallStringOptionTrait;
 use Jdomenechb\BRChain\Chain\ChainContainerItemTrait;
 use Jdomenechb\BRChain\DynamicOptionsTrait;
@@ -19,7 +18,6 @@ use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
 
 /**
  * Abstract Condition class implementing the most common methods a Condition item must have.
- * @package Jdomenechb\BRChain\Condition
  */
 abstract class AbstractCondition implements ConditionInterface
 {
@@ -29,12 +27,13 @@ abstract class AbstractCondition implements ConditionInterface
 
     /**
      * Determines if the condition evaluation must be negated.
+     *
      * @var bool
      */
     protected $negated = false;
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function isNegated(): bool
     {
@@ -42,7 +41,7 @@ abstract class AbstractCondition implements ConditionInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function setNegated(bool $negated): void
     {
@@ -50,7 +49,7 @@ abstract class AbstractCondition implements ConditionInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function process(SourceItemInterface $sourceItem): void
     {
@@ -64,5 +63,4 @@ abstract class AbstractCondition implements ConditionInterface
             $this->getChain()->process($sourceItem);
         }
     }
-
 }

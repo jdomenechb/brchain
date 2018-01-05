@@ -16,9 +16,7 @@ use Jdomenechb\BRChain\Chain\ChainContainerItemInterface;
 
 /**
  * Interface to be implemented by all Navigation items.
- * @package Jdomenechb\BRChain\Navigation
  */
 interface NavigationInterface extends ChainableItemInterface, ChainContainerItemInterface
 {
-
 }

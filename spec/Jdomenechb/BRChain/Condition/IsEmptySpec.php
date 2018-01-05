@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * This file is part of the brchain package.
+ *
+ * (c) Jordi Domènech Bonilla
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace spec\Jdomenechb\BRChain\Condition;
 
 use Jdomenechb\BRChain\Condition\AbstractCondition;
@@ -19,7 +28,6 @@ class IsEmptySpec extends ObjectBehavior
     {
         $this->shouldHaveType(AbstractCondition::class);
     }
-
 
     public function it_evaluates_by_getting_the_value_from_the_SourceItem(SourceItemInterface $item)
     {

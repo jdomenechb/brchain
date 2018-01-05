@@ -15,24 +15,25 @@ use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
 
 /**
  * Chain containing all items to be applied in the SourceItem processed by the parent Item.
- * @package Jdomenechb\BRChain
  */
 class Chain implements ChainInterface, \Iterator
 {
     /**
      * Items contained in the chain.
+     *
      * @var ChainableItemInterface[]
      */
     protected $items = [];
 
     /**
      * Internal position of the iterator.
+     *
      * @var int
      */
     private $position = 0;
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function add(ChainableItemInterface $item): void
     {
@@ -40,7 +41,7 @@ class Chain implements ChainInterface, \Iterator
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function process(SourceItemInterface $sourceItem): void
     {
@@ -50,13 +51,12 @@ class Chain implements ChainInterface, \Iterator
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getItems(): array
     {
         return $this->items;
     }
-
 
     /*
      * Iterator methods
@@ -64,9 +64,10 @@ class Chain implements ChainInterface, \Iterator
 
     /**
      * Returns the current element of the iterator.
+     *
      * @return ChainableItemInterface
      */
-    public function current() : ChainableItemInterface
+    public function current(): ChainableItemInterface
     {
         return $this->items[$this->position];
     }
@@ -74,25 +75,27 @@ class Chain implements ChainInterface, \Iterator
     /**
      * Increases the iterator position by one.
      */
-    public function next() : void
+    public function next(): void
     {
         ++$this->position;
     }
 
     /**
      * Returns the current iterator position.
+     *
      * @return int
      */
-    public function key() : int
+    public function key(): int
     {
         return $this->position;
     }
 
     /**
      * Checks if there is an element in the current iterator position.
+     *
      * @return bool
      */
-    public function valid() : bool
+    public function valid(): bool
     {
         return isset($this->items[$this->position]);
     }
@@ -100,7 +103,7 @@ class Chain implements ChainInterface, \Iterator
     /**
      * Rewinds the iterator to the first element.
      */
-    public function rewind() : void
+    public function rewind(): void
     {
         $this->position = 0;
     }

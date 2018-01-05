@@ -11,7 +11,6 @@
 
 namespace Jdomenechb\BRChain\Stub;
 
-
 use Jdomenechb\BRChain\DynamicOptionsTrait;
 
 class DynamicOptionsTraitStub
@@ -31,7 +30,7 @@ class DynamicOptionsTraitStub
     /**
      * @return int
      */
-    public function getOptionToCheck() : int
+    public function getOptionToCheck(): int
     {
         return $this->optionToCheck;
     }

@@ -20,7 +20,6 @@ use Jdomenechb\BRChain\SourceItem\XMLSourceItem;
 
 /**
  * Source class for XML strings, to be able to process them using a chain.
- * @package Jdomenechb\BRChain\Source
  */
 class XML implements SourceInterface
 {
@@ -29,8 +28,10 @@ class XML implements SourceInterface
     use CallStringOptionTrait;
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
+     *
      * @param SourceItemInterface $sourceItem
+     *
      * @throws SourceItemNotProcessableExtension
      */
     public function process(SourceItemInterface $sourceItem): void
@@ -43,7 +44,8 @@ class XML implements SourceInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
+     *
      * @throws SourceItemNotProcessableExtension
      */
     public function processFromString(string $data): string

@@ -11,27 +11,27 @@
 
 namespace Jdomenechb\BRChain\Condition;
 
-
 use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
 use Jdomenechb\BRChain\String\StringInterface;
 
 /**
  * Executes the containing chain if the given path exists.
- * @package Jdomenechb\BRChain\Condition
+ *
  * @method string strPath()
  */
 class PathExists extends AbstractCondition
 {
     /**
      * Path to check existance (required).
+     *
      * @var StringInterface
      */
     protected $path;
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
-    public function evaluate(SourceItemInterface $sourceItem) : bool
+    public function evaluate(SourceItemInterface $sourceItem): bool
     {
         $subItems = $sourceItem->queryPath($this->strPath());
 

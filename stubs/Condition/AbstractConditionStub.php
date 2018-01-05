@@ -11,13 +11,11 @@
 
 namespace Jdomenechb\BRChain\Stub\Condition;
 
-
 use Jdomenechb\BRChain\Condition\AbstractCondition;
 use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
 
 /**
- * Stub class for checking AbstractCondition
- * @package Jdomenechb\BRChain\Stub\Condition
+ * Stub class for checking AbstractCondition.
  */
 class AbstractConditionStub extends AbstractCondition
 {
@@ -26,7 +24,7 @@ class AbstractConditionStub extends AbstractCondition
      */
     protected $whatShouldReturnStubEvaluation;
 
-    public function evaluate(SourceItemInterface $sourceItem) : bool
+    public function evaluate(SourceItemInterface $sourceItem): bool
     {
         return $this->whatShouldReturnStubEvaluation;
     }
@@ -38,6 +36,4 @@ class AbstractConditionStub extends AbstractCondition
     {
         $this->whatShouldReturnStubEvaluation = $whatShouldReturnStubEvaluation;
     }
-
-
 }

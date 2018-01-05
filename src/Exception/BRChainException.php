@@ -13,9 +13,7 @@ namespace Jdomenechb\BRChain\Exception;
 
 /**
  * Abstract exception from which all the exceptions of the library will extend.
- * @package Jdomenechb\BRChain\Exception
  */
 abstract class BRChainException extends \RuntimeException
 {
-
 }

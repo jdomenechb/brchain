@@ -13,18 +13,18 @@ namespace Jdomenechb\BRChain\String;
 
 /**
  * Concatenates the given list of strings.
- * @package Jdomenechb\BRChain\String
  */
 class Concat extends AbstractString
 {
     /**
      * List of strings to concatenate.
+     *
      * @var StringInterface[]
      */
     protected $strings;
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function __toString()
     {
@@ -34,7 +34,7 @@ class Concat extends AbstractString
     /**
      * @return StringInterface[]
      */
-    public function getStrings() : array
+    public function getStrings(): array
     {
         return $this->strings;
     }

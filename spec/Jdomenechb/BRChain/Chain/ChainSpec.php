@@ -73,6 +73,4 @@ class ChainSpec extends ObjectBehavior
             $this->current()->shouldBe($reference[$key]);
         }
     }
-
-
 }

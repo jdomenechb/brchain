@@ -13,18 +13,19 @@ namespace Jdomenechb\BRChain;
 
 /**
  * Interface to be implemented by items that can be negated.
- * @package Jdomenechb\BRChain
  */
 interface NegatedItemInterface
 {
     /**
      * Returns if the item is negated.
+     *
      * @return bool
      */
     public function isNegated(): bool;
 
     /**
      * Sets if the item is negated.
+     *
      * @param bool $negated
      */
     public function setNegated(bool $negated): void;

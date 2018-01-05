@@ -13,7 +13,6 @@ namespace Jdomenechb\BRChain\SourceItem;
 
 /**
  * SourceItem that represents an XML node.
- * @package Jdomenechb\BRChain\SourceItem
  */
 class XMLSourceItem implements SourceItemInterface
 {
@@ -29,26 +28,29 @@ class XMLSourceItem implements SourceItemInterface
 
     /**
      * XMLDataItem constructor.
+     *
      * @param \DOMNode $data
      */
     public function __construct(\DOMNode $data = null)
     {
-        if ($data !== null) {
+        if (null !== $data) {
             $this->setData($data);
         }
     }
 
     /**
      * Returns the data the item uses as reference.
+     *
      * @return \DOMNode
      */
-    public function getData() : \DOMNode
+    public function getData(): \DOMNode
     {
         return $this->data;
     }
 
     /**
      * Sets the data the item will use as reference.
+     *
      * @param \DOMNode $data
      */
     public function setData(\DOMNode $data)
@@ -57,10 +59,13 @@ class XMLSourceItem implements SourceItemInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
+     *
      * @param string $path
-     * @return SourceItemInterface|null
+     *
      * @throws \RuntimeException
+     *
+     * @return SourceItemInterface|null
      */
     public function queryPath(string $path): array
     {
@@ -77,32 +82,32 @@ class XMLSourceItem implements SourceItemInterface
         return $result;
     }
 
-
     /**
-     * @return \DOMXPath
-     * @throws \RuntimeException
-     */
-    protected function getDomXPath() : \DOMXPath
-    {
-        // Lazy creation of DOMXPath
-        if ($this->domXPath === null) {
-            if ($this->data === null) {
-                throw new \RuntimeException('No DOMXPath nor data has been defined');
-            }
-
-            $this->domXPath = new \DOMXPath(
-                !$this->data instanceof \DOMDocument? $this->data->ownerDocument: $this->data
-            );
-        }
-
-        return $this->domXPath;
-    }
-
-    /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getValue(): string
     {
         return $this->data->nodeValue;
+    }
+
+    /**
+     * @throws \RuntimeException
+     *
+     * @return \DOMXPath
+     */
+    protected function getDomXPath(): \DOMXPath
+    {
+        // Lazy creation of DOMXPath
+        if (null === $this->domXPath) {
+            if (null === $this->data) {
+                throw new \RuntimeException('No DOMXPath nor data has been defined');
+            }
+
+            $this->domXPath = new \DOMXPath(
+                !$this->data instanceof \DOMDocument ? $this->data->ownerDocument : $this->data
+            );
+        }
+
+        return $this->domXPath;
     }
 }

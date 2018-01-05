@@ -11,13 +11,11 @@
 
 namespace Jdomenechb\BRChain\Stub\Transformation;
 
-
 use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
 use Jdomenechb\BRChain\Transformation\AbstractTransformation;
 
 /**
- * Stub class for checking AbstractNavigator
- * @package Jdomenechb\BRChain\Stub\Navigation
+ * Stub class for checking AbstractNavigator.
  */
 class AbstractTransformationStub extends AbstractTransformation
 {

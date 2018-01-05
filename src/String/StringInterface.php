@@ -15,9 +15,7 @@ use Jdomenechb\BRChain\PropertyItemInterface;
 
 /**
  * Interface to be implemented by all String items.
- * @package Jdomenechb\BRChain\String
  */
 interface StringInterface extends PropertyItemInterface
 {
-
 }

@@ -16,13 +16,14 @@ use Jdomenechb\BRChain\Chain\ChainContainerItemInterface;
 
 /**
  * Interface implemented by all Source elements.
- * @package Jdomenechb\BRChain\Source
  */
 interface SourceInterface extends ChainableItemInterface, ChainContainerItemInterface
 {
     /**
      * Execute the operations this item performs on the given string, and returns the result.
+     *
      * @param string $data
+     *
      * @return string
      */
     public function processFromString(string $data): string;

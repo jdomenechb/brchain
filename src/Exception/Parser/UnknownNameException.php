@@ -10,19 +10,20 @@
  */
 
 namespace Jdomenechb\BRChain\Exception\Parser;
+
 use Throwable;
 
 /**
  * Exception to be thrown when the given type is not known.
- * @package Jdomenechb\BRChain\Exception\Parser
  */
 class UnknownNameException extends ParserException
 {
     /**
      * UnknownTypeException constructor.
-     * @param string $type
-     * @param string $name
-     * @param array $context
+     *
+     * @param string         $type
+     * @param string         $name
+     * @param array          $context
      * @param Throwable|null $previous
      */
     public function __construct(string $type, string $name, array $context, Throwable $previous = null)

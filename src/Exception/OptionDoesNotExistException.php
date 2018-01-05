@@ -15,12 +15,12 @@ use Throwable;
 
 /**
  * Exception thrown when an object is given an option that does not recognise.
- * @package Jdomenechb\BRChain\Exception
  */
 class OptionDoesNotExistException extends BRChainException
 {
     /**
      * OptionDoesNotExistException constructor.
+     *
      * @param string $option
      * @param $className
      * @param Throwable|null $previous

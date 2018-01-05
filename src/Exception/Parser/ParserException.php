@@ -16,20 +16,21 @@ use Throwable;
 
 /**
  * Abstract parser exception to be extended by any parser exception.
- * @package Jdomenechb\BRChain\Exception\Parser
  */
 abstract class ParserException extends BRChainException
 {
     /**
      * Context in which the exception happened.
+     *
      * @var array
      */
     protected $context;
 
     /**
      * ParserException constructor.
-     * @param string $message
-     * @param array $context
+     *
+     * @param string         $message
+     * @param array          $context
      * @param Throwable|null $previous
      */
     public function __construct(string $message, array $context, Throwable $previous = null)
@@ -41,11 +42,11 @@ abstract class ParserException extends BRChainException
 
     /**
      * Get the context in which the exception happened.
+     *
      * @return array
      */
     public function getContext(): array
     {
         return $this->context;
     }
-
 }

@@ -13,13 +13,14 @@ namespace Jdomenechb\BRChain\Test;
 
 /**
  * Class extending the default ObjectBehaviour to provide more matchers.
- * @package Jdomenechb\BRChain\Test
+ *
  * @method shouldUseTrait(string $trait)
  */
 class ObjectBehavior extends \PhpSpec\ObjectBehavior
 {
     /**
      * Extended matchers to provide to the spec.
+     *
      * @return array
      */
     public function getMatchers(): array
@@ -47,7 +48,7 @@ class ObjectBehavior extends \PhpSpec\ObjectBehavior
                 }
 
                 return false;
-            }
+            },
         ];
     }
 }

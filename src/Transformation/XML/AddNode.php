@@ -19,27 +19,29 @@ use Jdomenechb\BRChain\Transformation\AbstractTransformation;
 
 /**
  * Adds a node into an XML source.
- * @package Jdomenechb\BRChain\Transformation
+ *
  * @method string strNodeName()
  * @method string strValue()
  */
 class AddNode extends AbstractTransformation
 {
-
     /**
      * Name of the node to be created (required).
+     *
      * @var StringInterface
      */
     protected $nodeName;
 
     /**
-     * Value of the node to be created
+     * Value of the node to be created.
+     *
      * @var StringInterface
      */
     protected $value;
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
+     *
      * @throws SourceItemNotProcessableExtension
      */
     public function process(SourceItemInterface $sourceItem): void
@@ -49,7 +51,7 @@ class AddNode extends AbstractTransformation
         }
 
         $data = $sourceItem->getData();
-        $doc = $data instanceof \DOMDocument? $data: $data->ownerDocument;
+        $doc = $data instanceof \DOMDocument ? $data : $data->ownerDocument;
 
         $createdNode = $data->appendChild($doc->createElement($this->strNodeName()));
 

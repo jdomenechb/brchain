@@ -10,17 +10,18 @@
  */
 
 namespace Jdomenechb\BRChain\Exception\Parser;
+
 use Throwable;
 
 /**
  * Exception to be thrown when the parsed content does not implement SourceInterface.
- * @package Jdomenechb\BRChain\Exception\Parser
  */
 class NotASourceException extends ParserException
 {
     /**
      * NotASourceException constructor.
-     * @param array $context
+     *
+     * @param array          $context
      * @param Throwable|null $previous
      */
     public function __construct(array $context, Throwable $previous = null)
