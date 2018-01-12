@@ -9,12 +9,14 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Jdomenechb\BRChain\Exception\Parser;
 
 use Throwable;
 
 /**
- * Exception to be thrown when a parameter is missing-.
+ * Exception to be thrown when a parameter is missing.
  */
 class MissingParameterException extends ParserException
 {
