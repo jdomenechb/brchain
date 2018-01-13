@@ -35,7 +35,7 @@ class IsEmptySpec extends ObjectBehavior
         $this->evaluate($item);
     }
 
-    public function it_evaluates_true_if_the_value_is_empty(SourceItemInterface $item, SourceItemInterface $child, StringInterface $path)
+    public function it_evaluates_true_if_the_value_is_empty(SourceItemInterface $item)
     {
         $item->getValue()->willReturn('');
         $this->evaluate($item)->shouldBe(true);
