@@ -28,18 +28,25 @@ use Jdomenechb\BRChain\Transformation\AbstractTransformation;
 class AddNode extends AbstractTransformation
 {
     /**
-     * Name of the node to be created (required).
+     * (Required) Name of the node to be created.
      *
      * @var StringInterface
      */
     protected $nodeName;
 
     /**
-     * Value of the node to be created.
+     * (Optional) Value of the node to be created.
      *
      * @var StringInterface
      */
     protected $value;
+
+    /**
+     * (Optional) Namespace of the node to be created.
+     *
+     * @var StringInterface
+     */
+    protected $namespace;
 
     /**
      * {@inheritdoc}
@@ -55,7 +62,13 @@ class AddNode extends AbstractTransformation
         $data = $sourceItem->getData();
         $doc = $data instanceof \DOMDocument ? $data : $data->ownerDocument;
 
-        $createdNode = $data->appendChild($doc->createElement($this->strNodeName()));
+        if ($namespace = $this->strNamespace()) {
+            $element = $doc->createElementNS($namespace, $this->strNodeName());
+        } else {
+            $element = $doc->createElement($this->strNodeName());
+        }
+
+        $createdNode = $data->appendChild($element);
 
         if ($value = $this->strValue()) {
             $createdNode->nodeValue = $value;
@@ -92,5 +105,21 @@ class AddNode extends AbstractTransformation
     public function setValue(StringInterface $value): void
     {
         $this->value = $value;
+    }
+
+    /**
+     * @return StringInterface
+     */
+    public function getNamespace(): StringInterface
+    {
+        return $this->namespace;
+    }
+
+    /**
+     * @param StringInterface $namespace
+     */
+    public function setNamespace(StringInterface $namespace): void
+    {
+        $this->namespace = $namespace;
     }
 }
