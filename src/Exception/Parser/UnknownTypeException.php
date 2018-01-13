@@ -30,7 +30,7 @@ class UnknownTypeException extends ParserException
      */
     public function __construct(string $type, array $knownTypes, array $context, Throwable $previous = null)
     {
-        $msg = 'Unknown item type "' . $type . '". Known types are: ' . implode(', ', $knownTypes);
+        $msg = 'Unknown item type "' . $type . '". Known types are: ' . \implode(', ', $knownTypes);
 
         parent::__construct($msg, $context, $previous);
     }

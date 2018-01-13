@@ -113,7 +113,7 @@ class Parser
 
         // Check if type is known
         if (!isset(static::$itemTypes[$type])) {
-            throw new UnknownTypeException($type, array_keys(static::$itemTypes), $data);
+            throw new UnknownTypeException($type, \array_keys(static::$itemTypes), $data);
         }
 
         $typeNamespace = static::$itemTypes[$type];
@@ -122,8 +122,8 @@ class Parser
         $isNegated = false;
 
         // Check class existence
-        if (!class_exists($itemClass)) {
-            if (!preg_match('#^Not(.*)$#', $name, $match)) {
+        if (!\class_exists($itemClass)) {
+            if (!\preg_match('#^Not(.*)$#', $name, $match)) {
                 throw new UnknownNameException($type, $name, $data);
             }
 
@@ -131,7 +131,7 @@ class Parser
             $isNegated = true;
 
             if (
-                !class_exists($itemClass)
+                !\class_exists($itemClass)
             ) {
                 throw new UnknownNameException($type, $name, $data);
             }
@@ -227,7 +227,7 @@ class Parser
 
         // Check if type is known
         if (!isset(static::$propertyItemTypes[$type])) {
-            throw new UnknownTypeException($type, array_keys(static::$itemTypes), $data);
+            throw new UnknownTypeException($type, \array_keys(static::$itemTypes), $data);
         }
 
         $typeNamespace = static::$propertyItemTypes[$type];
@@ -235,7 +235,7 @@ class Parser
         $itemClass = $typeNamespace . '\\' . $name;
 
         // Check class existence
-        if (!class_exists($itemClass)) {
+        if (!\class_exists($itemClass)) {
             throw new UnknownNameException($type, $name, $data);
         }
 
@@ -287,7 +287,7 @@ class Parser
                 isset($data[static::DATA_NAME], static::$propertyItemTypes[$data[static::DATA_TYPE]])
                 || (
                     !isset($data[static::DATA_NAME])
-                    && isset(static::$propertyItemTypes[substr($data[static::DATA_TYPE], 0, strrpos($data[static::DATA_TYPE], '/'))])
+                    && isset(static::$propertyItemTypes[\mb_substr($data[static::DATA_TYPE], 0, \mb_strrpos($data[static::DATA_TYPE], '/'))])
                 )
             );
     }
@@ -309,17 +309,17 @@ class Parser
         }
 
         // Get type
-        $type = str_replace('\\', '/', $data[static::DATA_TYPE]);
+        $type = \str_replace('\\', '/', $data[static::DATA_TYPE]);
         unset($data[static::DATA_TYPE]);
 
         // Check if name is present
         if (!isset($data[static::DATA_NAME])) {
-            if (false === ($lastPosBackslash = strrpos($type, '/'))) {
+            if (false === ($lastPosBackslash = \mb_strrpos($type, '/'))) {
                 throw new MissingParameterException(static::DATA_NAME, $data);
             }
 
-            $name = substr($type, $lastPosBackslash + 1);
-            $type = substr($type, 0, $lastPosBackslash);
+            $name = \mb_substr($type, $lastPosBackslash + 1);
+            $type = \mb_substr($type, 0, $lastPosBackslash);
         } else {
             // Get name and item class
             $name = $data[static::DATA_NAME];

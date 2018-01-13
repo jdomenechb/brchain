@@ -46,20 +46,20 @@ trait DynamicOptionsTrait
     public function setOptions(array $options): void
     {
         foreach ($options as $optionName => $optionValue) {
-            $getterName = 'get' . ucfirst($optionName);
-            $isMethodName = 'is' . ucfirst($optionName);
-            $setterName = 'set' . ucfirst($optionName);
+            $getterName = 'get' . \ucfirst($optionName);
+            $isMethodName = 'is' . \ucfirst($optionName);
+            $setterName = 'set' . \ucfirst($optionName);
 
             if (
-                !property_exists($this, $optionName)
-                || !method_exists($this, $setterName)
-                || (!method_exists($this, $getterName) && !method_exists($this, $isMethodName))
+                !\property_exists($this, $optionName)
+                || !\method_exists($this, $setterName)
+                || (!\method_exists($this, $getterName) && !\method_exists($this, $isMethodName))
             ) {
                 /* @var $this ChainableItemInterface */
                 throw new OptionDoesNotExistException($optionName, \get_class($this));
             }
 
-            $this->$setterName($optionValue);
+            $this->{$setterName}($optionValue);
         }
     }
 }

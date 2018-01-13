@@ -39,7 +39,7 @@ class ObjectBehavior extends \PhpSpec\ObjectBehavior
                     return true;
                 }
 
-                $parents = class_parents($className);
+                $parents = \class_parents($className);
 
                 foreach ($parents as $parent) {
                     $uses = \class_uses($parent);

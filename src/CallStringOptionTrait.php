@@ -32,16 +32,16 @@ trait CallStringOptionTrait
      */
     public function __call($name, $arguments)
     {
-        if (0 === !strpos($name, 'str')) {
+        if (0 === !\strpos($name, 'str')) {
             throw new MethodNotFoundException($name, static::class);
         }
 
-        $getter = 'get' . substr($name, 3);
+        $getter = 'get' . \substr($name, 3);
 
-        if (!method_exists($this, $getter)) {
+        if (!\method_exists($this, $getter)) {
             throw new MethodNotFoundException($getter, static::class);
         }
 
-        return (string) $this->$getter(...$arguments);
+        return (string) $this->{$getter}(...$arguments);
     }
 }

@@ -30,7 +30,7 @@ class Concat extends AbstractString
      */
     public function __toString()
     {
-        return implode('', $this->getStrings());
+        return \implode('', $this->getStrings());
     }
 
     /**
