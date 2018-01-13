@@ -17,42 +17,41 @@ use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
 use Jdomenechb\BRChain\String\StringInterface;
 
 /**
- * Executes the containing chain if the given path exists.
- *
- * @method string strPath()
+ * Executes the containing chain if the value equals the given value.
  */
-class PathExists extends AbstractCondition
+class Equals extends AbstractCondition
 {
     /**
-     * Path to check existance (required).
+     * Value use for the comparison (required).
      *
      * @var StringInterface
      */
-    protected $pathToCheckExistance;
+    protected $value;
 
     /**
      * {@inheritdoc}
      */
     public function evaluate(SourceItemInterface $sourceItem): bool
     {
-        $subItems = $sourceItem->queryPath($this->strPathToCheckExistance());
+        $value = $sourceItem->getValue();
 
-        return (bool) \count($subItems);
+        return $this->strValue() === $value;
     }
 
     /**
+     *
      * @return StringInterface
      */
-    public function getPathToCheckExistance(): StringInterface
+    public function getValue(): StringInterface
     {
-        return $this->pathToCheckExistance;
+        return $this->value;
     }
 
     /**
-     * @param StringInterface $pathToCheckExistance
+     * @param StringInterface $value
      */
-    public function setPathToCheckExistance(StringInterface $pathToCheckExistance): void
+    public function setValue(StringInterface $value): void
     {
-        $this->pathToCheckExistance = $pathToCheckExistance;
+        $this->value = $value;
     }
 }

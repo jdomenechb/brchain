@@ -122,7 +122,7 @@ class Parser
         $isNegated = false;
 
         // Check class existance
-        if (!class_exists($itemClass) || !class_implements($itemClass, ChainableItemInterface::class)) {
+        if (!class_exists($itemClass)) {
             if (!preg_match('#^Not(.*)$#', $name, $match)) {
                 throw new UnknownNameException($type, $name, $data);
             }
@@ -132,8 +132,6 @@ class Parser
 
             if (
                 !class_exists($itemClass)
-                || !class_implements($itemClass, ChainableItemInterface::class)
-                || !class_implements($itemClass, NegatedItemInterface::class)
             ) {
                 throw new UnknownNameException($type, $name, $data);
             }
@@ -142,6 +140,10 @@ class Parser
         // Create instance of item object
         /** @var ChainableItemInterface $obj */
         $obj = new $itemClass();
+
+        if (!$obj instanceof ChainableItemInterface) {
+            throw new UnknownNameException($type, $name, $data);
+        }
 
         // Parse chain
         if ($obj instanceof ChainContainerItemInterface) {
@@ -299,18 +301,24 @@ class Parser
             throw new MissingParameterException(static::DATA_TYPE, $data);
         }
 
-        // Check if name is present
-        if (!isset($data[static::DATA_NAME])) {
-            throw new MissingParameterException(static::DATA_NAME, $data);
-        }
-
         // Get type
-        $type = $data[static::DATA_TYPE];
+        $type = str_replace('/', '\\', $data[static::DATA_TYPE]);
         unset($data[static::DATA_TYPE]);
 
-        // Get name and item class
-        $name = $data[static::DATA_NAME];
-        unset($data[static::DATA_NAME]);
+        // Check if name is present
+        if (!isset($data[static::DATA_NAME])) {
+            if (($lastPosBackslash = strrpos($type, '\\')) === false) {
+                throw new MissingParameterException(static::DATA_NAME, $data);
+            }
+
+            $name = substr($type, $lastPosBackslash + 1);
+            $type = substr($type, 0, $lastPosBackslash);
+
+        } else {
+            // Get name and item class
+            $name = $data[static::DATA_NAME];
+            unset($data[static::DATA_NAME]);
+        }
 
         return ['type' => $type, 'name' => $name];
     }

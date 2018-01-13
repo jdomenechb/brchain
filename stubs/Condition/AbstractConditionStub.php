@@ -24,7 +24,7 @@ class AbstractConditionStub extends AbstractCondition
     /**
      * @var bool
      */
-    protected $whatShouldReturnStubEvaluation;
+    protected $whatShouldReturnStubEvaluation = true;
 
     public function evaluate(SourceItemInterface $sourceItem): bool
     {
