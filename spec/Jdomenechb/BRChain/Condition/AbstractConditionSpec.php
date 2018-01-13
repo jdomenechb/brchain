@@ -69,6 +69,7 @@ class AbstractConditionSpec extends ObjectBehavior
 
     public function it_processes_chain_when_evaluation_true_and_not_negated(ChainInterface $chain, SourceItemInterface $sourceItem)
     {
+        // FIXME: Missing check of what evaluates
         $this->setNegated(false);
         $this->setWhatShouldReturnStubEvaluation(true);
 
@@ -80,6 +81,7 @@ class AbstractConditionSpec extends ObjectBehavior
 
     public function it_processes_chain_when_evaluation_false_but_is_negated(ChainInterface $chain, SourceItemInterface $sourceItem)
     {
+        // FIXME: Missing check of what evaluates
         $this->setNegated(true);
         $this->setWhatShouldReturnStubEvaluation(false);
 
@@ -91,6 +93,7 @@ class AbstractConditionSpec extends ObjectBehavior
 
     public function it_does_not_process_chain_when_evaluation_true_and_negated(ChainInterface $chain, SourceItemInterface $sourceItem)
     {
+        // FIXME: Missing check of what evaluates
         $this->setNegated(true);
         $this->setWhatShouldReturnStubEvaluation(true);
 
@@ -102,6 +105,7 @@ class AbstractConditionSpec extends ObjectBehavior
 
     public function it_does_not_process_chain_when_evaluation_false_and_not_negated(ChainInterface $chain, SourceItemInterface $sourceItem)
     {
+        // FIXME: Missing check of what evaluates
         $this->setNegated(false);
         $this->setWhatShouldReturnStubEvaluation(false);
 
@@ -111,14 +115,15 @@ class AbstractConditionSpec extends ObjectBehavior
         $this->process($sourceItem);
     }
 
-    public function it_can_process_an_alternative_given_path(StringInterface $path, ChainInterface $chain, SourceItemInterface $parentSourceItem, SourceItemInterface $childSourceItem)
+    public function it_can_evaluate_an_alternative_given_path(StringInterface $path, ChainInterface $chain, SourceItemInterface $parentSourceItem, SourceItemInterface $childSourceItem)
     {
+        // FIXME: Missing check of what evaluates
         $path->__toString()->willReturn('a');
 
         $parentSourceItem->queryPath('a')->willReturn([$childSourceItem]);
         $this->setPath($path);
 
-        $chain->process($childSourceItem)->shouldBeCalled();
+        $chain->process($parentSourceItem)->shouldBeCalled();
         $this->setChain($chain);
 
         $this->process($parentSourceItem);
