@@ -19,6 +19,7 @@ use Jdomenechb\BRChain\Condition\AbstractCondition;
 use Jdomenechb\BRChain\Condition\ConditionInterface;
 use Jdomenechb\BRChain\DynamicOptionsTrait;
 use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
+use Jdomenechb\BRChain\String\StringInterface;
 use Jdomenechb\BRChain\Stub\Condition\AbstractConditionStub;
 use Jdomenechb\BRChain\Test\ObjectBehavior;
 
@@ -108,5 +109,18 @@ class AbstractConditionSpec extends ObjectBehavior
         $this->setChain($chain);
 
         $this->process($sourceItem);
+    }
+
+    public function it_can_process_an_alternative_given_path(StringInterface $path, ChainInterface $chain, SourceItemInterface $parentSourceItem, SourceItemInterface $childSourceItem)
+    {
+        $path->__toString()->willReturn('a');
+
+        $parentSourceItem->queryPath('a')->willReturn([$childSourceItem]);
+        $this->setPath($path);
+
+        $chain->process($childSourceItem)->shouldBeCalled();
+        $this->setChain($chain);
+
+        $this->process($parentSourceItem);
     }
 }
