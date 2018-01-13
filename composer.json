@@ -37,6 +37,6 @@
     "scripts": {
         "spec": "vendor/bin/phpspec",
 
-        "check-styles": "vendor/bin/php-cs-fixer"
+        "check-styles": "vendor/bin/php-cs-fixer fix"
     }
 }
