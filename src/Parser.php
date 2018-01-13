@@ -235,13 +235,17 @@ class Parser
         $itemClass = $typeNamespace . '\\' . $name;
 
         // Check class existance
-        if (!class_exists($itemClass) || !class_implements($itemClass, PropertyItemInterface::class)) {
+        if (!class_exists($itemClass)) {
             throw new UnknownNameException($type, $name, $data);
         }
 
         // Create instance of item object
         /** @var PropertyItemInterface $obj */
         $obj = new $itemClass();
+
+        if (!$obj instanceof PropertyItemInterface) {
+            throw new UnknownNameException($type, $name, $data);
+        }
 
         // Parse chain
         if ($obj instanceof ChainContainerItemInterface) {
@@ -278,11 +282,14 @@ class Parser
      */
     protected function isParseablePropertyItem(array $data): bool
     {
-        return isset(
-            $data[static::DATA_TYPE],
-            $data[static::DATA_NAME],
-            static::$propertyItemTypes[$data[static::DATA_TYPE]]
-        );
+        return isset($data[static::DATA_TYPE])
+            && (
+                isset($data[static::DATA_NAME], static::$propertyItemTypes[$data[static::DATA_TYPE]])
+                || (
+                    !isset($data[static::DATA_NAME])
+                    && isset(static::$propertyItemTypes[substr($data[static::DATA_TYPE], 0, strrpos($data[static::DATA_TYPE], '/'))])
+                )
+            );
     }
 
     /**
