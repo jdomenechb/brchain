@@ -110,7 +110,7 @@ class AddNode extends AbstractTransformation
     /**
      * @return StringInterface
      */
-    public function getNamespace(): StringInterface
+    public function getNamespace(): ?StringInterface
     {
         return $this->namespace;
     }
