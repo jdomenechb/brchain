@@ -62,4 +62,19 @@ class XMLSpec extends ObjectBehavior
 
         $this->process($sourceItem);
     }
+
+    public function it_accepts_namespace_prefixes()
+    {
+        $this->shouldUseTrait(XML\NamespacePrefixesTrait::class);
+    }
+
+    public function it_passes_the_namespace_prefixes_it_contains_to_the_processed_source_item(XMLSourceItem $sourceItem, ChainInterface $chain)
+    {
+        $prefixes = ['n' => 'http://uri.com'];
+
+        $this->setNamespacePrefixes($prefixes);
+
+        $sourceItem->setNamespacePrefixes($prefixes)->shouldBeCalled();
+        $this->process($sourceItem);
+    }
 }

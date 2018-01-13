@@ -17,6 +17,7 @@ use Jdomenechb\BRChain\CallStringOptionTrait;
 use Jdomenechb\BRChain\Chain\ChainContainerItemTrait;
 use Jdomenechb\BRChain\DynamicOptionsTrait;
 use Jdomenechb\BRChain\Exception\SourceItemNotProcessableExtension;
+use Jdomenechb\BRChain\Source\XML\NamespacePrefixesTrait;
 use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
 use Jdomenechb\BRChain\SourceItem\XMLSourceItem;
 
@@ -28,6 +29,7 @@ class XML implements SourceInterface
     use ChainContainerItemTrait;
     use DynamicOptionsTrait;
     use CallStringOptionTrait;
+    use NamespacePrefixesTrait;
 
     /**
      * {@inheritdoc}
@@ -41,6 +43,8 @@ class XML implements SourceInterface
         if (!$sourceItem instanceof XMLSourceItem) {
             throw new SourceItemNotProcessableExtension(\get_class($sourceItem), static::class);
         }
+
+        $sourceItem->setNamespacePrefixes($this->getNamespacePrefixes());
 
         $this->getChain()->process($sourceItem);
     }

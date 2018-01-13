@@ -12,12 +12,15 @@
 declare(strict_types=1);
 
 namespace Jdomenechb\BRChain\SourceItem;
+use Jdomenechb\BRChain\Source\XML\NamespacePrefixesTrait;
 
 /**
  * SourceItem that represents an XML node.
  */
 class XMLSourceItem implements SourceItemInterface
 {
+    use NamespacePrefixesTrait;
+
     /**
      * @var \DOMNode
      */
@@ -72,13 +75,16 @@ class XMLSourceItem implements SourceItemInterface
     public function queryPath(string $path): array
     {
         $domXPath = $this->getDomXPath();
+        $prefixes = $this->getNamespacePrefixes();
 
         $result = [];
 
         $matchedNodes = $domXPath->query($path);
 
         foreach ($matchedNodes as $matchedNode) {
-            $result[] = new self($matchedNode);
+            $created = new self($matchedNode);
+            $created->setNamespacePrefixes($prefixes);
+            $result[] = $created;
         }
 
         return $result;
@@ -108,6 +114,10 @@ class XMLSourceItem implements SourceItemInterface
             $this->domXPath = new \DOMXPath(
                 !$this->data instanceof \DOMDocument ? $this->data->ownerDocument : $this->data
             );
+
+            foreach ($this->getNamespacePrefixes() as $prefix => $namespace) {
+                $this->domXPath->registerNamespace($prefix, $namespace);
+            }
         }
 
         return $this->domXPath;

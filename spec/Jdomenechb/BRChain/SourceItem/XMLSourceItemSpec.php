@@ -11,6 +11,7 @@
 
 namespace spec\Jdomenechb\BRChain\SourceItem;
 
+use Jdomenechb\BRChain\Source\XML\NamespacePrefixesTrait;
 use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
 use Jdomenechb\BRChain\SourceItem\XMLSourceItem;
 use Jdomenechb\BRChain\Test\ObjectBehavior;
@@ -45,6 +46,11 @@ class XMLSourceItemSpec extends ObjectBehavior
             ->during('setData', ['Other data']);
     }
 
+    public function it_accepts_namespace_prefixes()
+    {
+        $this->shouldUseTrait(NamespacePrefixesTrait::class);
+    }
+
     public function it_can_query_XML_xPaths()
     {
         $xml = new \DOMDocument();
@@ -60,30 +66,60 @@ class XMLSourceItemSpec extends ObjectBehavior
             ->shouldBeSameXMLDataItemArray([new XMLSourceItem($nodeA), new XMLSourceItem($nodeC)]);
     }
 
+    public function it_can_query_namespaced_XML_xPaths()
+    {
+        $xml = new \DOMDocument();
+
+        $nodeA = $xml->appendChild($xml->createElement('a'));
+        $nodeB = $nodeA->appendChild($xml->createElement('b'));
+        $nodeB->appendChild($xml->createElement('d'));
+        $nodeC = $nodeB->appendChild($xml->createElementNS('http://uri.com', 'c'));
+
+        $this->beConstructedWith($xml);
+
+        $prefixes = ['n' => 'http://uri.com'];
+
+        $this->setNamespacePrefixes($prefixes);
+
+        $itemNamespaced = new XMLSourceItem($nodeC);
+        $itemNamespaced->setNamespacePrefixes($prefixes);
+
+        $this->queryPath('/a/b/n:c')
+            ->shouldBeSameXMLDataItemArray([$itemNamespaced]);
+
+        $this->queryPath('/a/b/c')
+            ->shouldBeSameXMLDataItemArray([]);
+    }
+
     public function getMatchers(): array
     {
-        return [
-            'beSameXMLDataItemArray' => function ($subject, $value) {
-                if (!\is_array($subject) || !\is_array($value) || \count($subject) !== \count($value)) {
+        $matchers = parent::getMatchers();
+        $matchers['beSameXMLDataItemArray'] = function ($subject, $value) {
+            if (!\is_array($subject) || !\is_array($value) || \count($subject) !== \count($value)) {
+                return false;
+            }
+
+            foreach ($subject as $subjectKey => $subjectValue) {
+                if (
+                    !$subjectValue instanceof XMLSourceItem
+                    || !isset($value[$subjectKey])
+                    || !$value[$subjectKey] instanceof XMLSourceItem
+                ) {
                     return false;
                 }
 
-                foreach ($subject as $subjectKey => $subjectValue) {
-                    if (
-                        !$subjectValue instanceof XMLSourceItem
-                        || !isset($value[$subjectKey])
-                        || !$value[$subjectKey] instanceof XMLSourceItem
-                    ) {
-                        return false;
-                    }
-
-                    if (!$subjectValue->getData()->isSameNode($value[$subjectKey]->getData())) {
-                        return false;
-                    }
+                if (!$subjectValue->getData()->isSameNode($value[$subjectKey]->getData())) {
+                    return false;
                 }
 
-                return true;
-            },
-        ];
+                if ($subjectValue->getNamespacePrefixes() !== $value[$subjectKey]->getNamespacePrefixes()) {
+                    return false;
+                }
+            }
+
+            return true;
+        };
+
+        return $matchers;
     }
 }
