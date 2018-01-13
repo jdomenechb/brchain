@@ -14,7 +14,6 @@ namespace spec\Jdomenechb\BRChain\Condition;
 use Jdomenechb\BRChain\Condition\AbstractCondition;
 use Jdomenechb\BRChain\Condition\IsEmpty;
 use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
-use Jdomenechb\BRChain\String\StringInterface;
 use PhpSpec\ObjectBehavior;
 
 class IsEmptySpec extends ObjectBehavior

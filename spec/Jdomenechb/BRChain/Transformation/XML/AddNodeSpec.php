@@ -11,13 +11,11 @@
 
 namespace spec\Jdomenechb\BRChain\Transformation\XML;
 
-use Jdomenechb\BRChain\Chain\ChainableItemInterface;
 use Jdomenechb\BRChain\Exception\SourceItemNotProcessableExtension;
 use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
 use Jdomenechb\BRChain\String\StringInterface;
 use Jdomenechb\BRChain\Test\ObjectBehavior;
 use Jdomenechb\BRChain\Transformation\AbstractTransformation;
-use Jdomenechb\BRChain\Transformation\TransformationInterface;
 use Jdomenechb\BRChain\Transformation\XML\AddNode;
 
 class AddNodeSpec extends ObjectBehavior
