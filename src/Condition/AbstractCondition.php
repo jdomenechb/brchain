@@ -88,10 +88,12 @@ abstract class AbstractCondition implements ConditionInterface
                 return;
             }
 
-            $sourceItem = \array_shift($possibleSourceItem);
+            $evaluationSourceItem = \array_shift($possibleSourceItem);
+        } else {
+            $evaluationSourceItem = $sourceItem;
         }
 
-        $evaluationResult = $this->evaluate($sourceItem);
+        $evaluationResult = $this->evaluate($evaluationSourceItem);
 
         if ($this->isNegated()) {
             $evaluationResult = !$evaluationResult;
