@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * This file is part of the brchain package.
  *
@@ -9,8 +11,6 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types=1);
-
 namespace Jdomenechb\BRChain\Condition;
 
 use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
@@ -18,6 +18,8 @@ use Jdomenechb\BRChain\String\StringInterface;
 
 /**
  * Executes the containing chain if the value equals the given value.
+ *
+ * @method string strValue()
  */
 class Equals extends AbstractCondition
 {
@@ -39,7 +41,6 @@ class Equals extends AbstractCondition
     }
 
     /**
-     *
      * @return StringInterface
      */
     public function getValue(): StringInterface

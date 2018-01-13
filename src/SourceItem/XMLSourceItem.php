@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * This file is part of the brchain package.
  *
@@ -9,9 +11,8 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types=1);
-
 namespace Jdomenechb\BRChain\SourceItem;
+
 use Jdomenechb\BRChain\Source\XML\NamespacePrefixesTrait;
 
 /**

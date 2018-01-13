@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * This file is part of the brchain package.
  *
@@ -8,8 +10,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
-declare(strict_types=1);
 
 namespace Jdomenechb\BRChain;
 
@@ -121,7 +121,7 @@ class Parser
         $itemClass = $typeNamespace . '\\' . $name;
         $isNegated = false;
 
-        // Check class existance
+        // Check class existence
         if (!class_exists($itemClass)) {
             if (!preg_match('#^Not(.*)$#', $name, $match)) {
                 throw new UnknownNameException($type, $name, $data);
@@ -234,7 +234,7 @@ class Parser
 
         $itemClass = $typeNamespace . '\\' . $name;
 
-        // Check class existance
+        // Check class existence
         if (!class_exists($itemClass)) {
             throw new UnknownNameException($type, $name, $data);
         }
@@ -314,13 +314,12 @@ class Parser
 
         // Check if name is present
         if (!isset($data[static::DATA_NAME])) {
-            if (($lastPosBackslash = strrpos($type, '/')) === false) {
+            if (false === ($lastPosBackslash = strrpos($type, '/'))) {
                 throw new MissingParameterException(static::DATA_NAME, $data);
             }
 
             $name = substr($type, $lastPosBackslash + 1);
             $type = substr($type, 0, $lastPosBackslash);
-
         } else {
             // Get name and item class
             $name = $data[static::DATA_NAME];

@@ -1,22 +1,27 @@
 <?php
+
+declare(strict_types=1);
+
 /**
- * Created by PhpStorm.
- * User: jdomenechb
- * Date: 13/1/18
- * Time: 3:08
+ * This file is part of the brchain package.
+ *
+ * (c) Jordi Domènech Bonilla
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Jdomenechb\BRChain\Source\XML;
 
 /**
  * Trait for helping implementing namespace prefixes.
- * @package Jdomenechb\BRChain\Source\XML
  */
 trait NamespacePrefixesTrait
 {
     /**
      * Given a prefix as key and a namespace as value, nodes in the namespace will be able to be accessed using in the
      * path the prefix given.
+     *
      * @var string[]
      */
     protected $namespacePrefixes = [];
