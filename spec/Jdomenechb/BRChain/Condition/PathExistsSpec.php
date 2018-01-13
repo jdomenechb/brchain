@@ -33,8 +33,8 @@ class PathExistsSpec extends ObjectBehavior
     {
         $path->__toString()->willReturn('test/path');
 
-        $this->setPath($path);
-        $this->strPath()->shouldReturn('test/path');
+        $this->setPathToCheckExistance($path);
+        $this->strPathToCheckExistance()->shouldReturn('test/path');
     }
 
     public function it_evaluates_by_querying_the_path_from_the_SourceItem(SourceItemInterface $item, StringInterface $path)
@@ -43,7 +43,7 @@ class PathExistsSpec extends ObjectBehavior
 
         $path->__toString()->willReturn('test/path');
 
-        $this->setPath($path);
+        $this->setPathToCheckExistance($path);
         $this->evaluate($item);
     }
 
@@ -53,8 +53,8 @@ class PathExistsSpec extends ObjectBehavior
 
         $path->__toString()->willReturn('test/path');
 
-        $this->setPath($path);
-        $this->strPath()->shouldReturn('test/path');
+        $this->setPathToCheckExistance($path);
+        $this->strPathToCheckExistance()->shouldReturn('test/path');
 
         $this->evaluate($item)->shouldBe(true);
     }
@@ -65,8 +65,8 @@ class PathExistsSpec extends ObjectBehavior
 
         $path->__toString()->willReturn('test/path');
 
-        $this->setPath($path);
-        $this->strPath()->shouldReturn('test/path');
+        $this->setPathToCheckExistance($path);
+        $this->strPathToCheckExistance()->shouldReturn('test/path');
 
         $this->evaluate($item)->shouldBe(false);
     }
