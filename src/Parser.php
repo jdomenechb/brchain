@@ -302,12 +302,12 @@ class Parser
         }
 
         // Get type
-        $type = str_replace('/', '\\', $data[static::DATA_TYPE]);
+        $type = str_replace('\\', '/', $data[static::DATA_TYPE]);
         unset($data[static::DATA_TYPE]);
 
         // Check if name is present
         if (!isset($data[static::DATA_NAME])) {
-            if (($lastPosBackslash = strrpos($type, '\\')) === false) {
+            if (($lastPosBackslash = strrpos($type, '/')) === false) {
                 throw new MissingParameterException(static::DATA_NAME, $data);
             }
 
