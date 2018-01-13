@@ -58,6 +58,9 @@ class XML implements SourceInterface
     {
         // Prepare the SourceItem
         $domDocument = new \DOMDocument();
+        $domDocument->preserveWhiteSpace = false;
+        $domDocument->formatOutput = true;
+
         $domDocument->loadXML($data);
 
         $xmlSourceItem = new XMLSourceItem($domDocument);
