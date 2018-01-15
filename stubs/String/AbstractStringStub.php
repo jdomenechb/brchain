@@ -13,8 +13,6 @@ declare(strict_types=1);
 
 namespace Jdomenechb\BRChain\Stub\String;
 
-use Jdomenechb\BRChain\Condition\AbstractCondition;
-use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
 use Jdomenechb\BRChain\String\AbstractString;
 
 /**
@@ -23,7 +21,7 @@ use Jdomenechb\BRChain\String\AbstractString;
 class AbstractStringStub extends AbstractString
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function __toString()
     {

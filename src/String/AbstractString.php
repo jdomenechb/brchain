@@ -28,6 +28,7 @@ abstract class AbstractString implements StringInterface
 
     /**
      * Context of the string to be evaluated.
+     *
      * @var SourceItemInterface
      */
     protected $context;
@@ -45,7 +46,7 @@ abstract class AbstractString implements StringInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getContext(): SourceItemInterface
     {
@@ -53,7 +54,7 @@ abstract class AbstractString implements StringInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function setContext(SourceItemInterface $context): void
     {
