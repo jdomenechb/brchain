@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Jdomenechb\BRChain;
 
+use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
+
 /**
  * Interface to be implemented by all items that belong to a property of another item.
  */
@@ -24,4 +26,16 @@ interface PropertyItemInterface extends ItemInterface
      * @return string
      */
     public function __toString();
+
+    /**
+     * Get the context in which the property should evaluate.
+     * @return SourceItemInterface
+     */
+    public function getContext(): SourceItemInterface;
+
+    /**
+     * Set the context in which the property should evaluate.
+     * @param SourceItemInterface $context
+     */
+    public function setContext(SourceItemInterface $context): void;
 }

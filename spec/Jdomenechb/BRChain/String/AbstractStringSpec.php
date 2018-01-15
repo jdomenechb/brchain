@@ -5,6 +5,7 @@ namespace spec\Jdomenechb\BRChain\String;
 use Jdomenechb\BRChain\CallStringOptionTrait;
 use Jdomenechb\BRChain\DynamicOptionsTrait;
 use Jdomenechb\BRChain\PropertyItemInterface;
+use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
 use Jdomenechb\BRChain\String\AbstractString;
 use Jdomenechb\BRChain\String\StringInterface;
 use Jdomenechb\BRChain\Stub\String\AbstractStringStub;
@@ -40,5 +41,11 @@ class AbstractStringSpec extends ObjectBehavior
     public function it_can_return_properties_as_strings()
     {
         $this->shouldUseTrait(CallStringOptionTrait::class);
+    }
+
+    public function it_can_receive_a_context(SourceItemInterface $sourceItem)
+    {
+        $this->setContext($sourceItem);
+        $this->getContext()->shouldBe($sourceItem);
     }
 }

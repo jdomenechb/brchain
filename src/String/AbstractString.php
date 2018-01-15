@@ -16,6 +16,7 @@ namespace Jdomenechb\BRChain\String;
 use Jdomenechb\BRChain\CallStringOptionTrait;
 use Jdomenechb\BRChain\DynamicOptionsTrait;
 use Jdomenechb\BRChain\Exception\OptionDoesNotExistException;
+use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
 
 /**
  * Class that implements basic methods that almost all strings should follow.
@@ -24,6 +25,12 @@ abstract class AbstractString implements StringInterface
 {
     use CallStringOptionTrait;
     use DynamicOptionsTrait;
+
+    /**
+     * Context of the string to be evaluated.
+     * @var SourceItemInterface
+     */
+    protected $context;
 
     /**
      * AbstractString constructor.
@@ -35,5 +42,21 @@ abstract class AbstractString implements StringInterface
     public function __construct(array $options = [])
     {
         $this->setOptions($options);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getContext(): SourceItemInterface
+    {
+        return $this->context;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setContext(SourceItemInterface $context): void
+    {
+        $this->context = $context;
     }
 }
