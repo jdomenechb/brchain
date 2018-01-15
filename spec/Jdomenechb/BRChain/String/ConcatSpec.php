@@ -11,6 +11,7 @@
 
 namespace spec\Jdomenechb\BRChain\String;
 
+use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
 use Jdomenechb\BRChain\String\Concat;
 use Jdomenechb\BRChain\String\StringInterface;
 use Jdomenechb\BRChain\Test\ObjectBehavior;
@@ -45,12 +46,17 @@ class ConcatSpec extends ObjectBehavior
         $this->__toString()->shouldReturn('hello and goodbye');
     }
 
-    public function it_concatenates_list_of_String_items(StringInterface $string1, StringInterface $string2)
+    public function it_concatenates_list_of_String_items(StringInterface $string1, StringInterface $string2, SourceItemInterface $context)
     {
         $string1->__toString()->willReturn('String1');
         $string2->__toString()->willReturn(' and String2');
 
-        $this->setOptions(['strings' => [$string1, $string2]]);
+        $string1->setContext($context)->shouldBeCalled();
+        $string2->setContext($context)->shouldBeCalled();
+
+        $this->setStrings([$string1, $string2]);
+        $this->setContext($context);
+
         $this->__toString()->shouldReturn('String1 and String2');
     }
 }

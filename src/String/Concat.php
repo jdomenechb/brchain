@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Jdomenechb\BRChain\String;
 
+use Jdomenechb\BRChain\PropertyItemInterface;
+
 /**
  * Concatenates the given list of strings.
  */
@@ -30,6 +32,12 @@ class Concat extends AbstractString
      */
     public function __toString()
     {
+        foreach ($this->getStrings() as $string) {
+            if ($string instanceof PropertyItemInterface) {
+                $string->setContext($this->getContext());
+            }
+        }
+
         return \implode('', $this->getStrings());
     }
 
