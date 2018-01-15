@@ -11,23 +11,25 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Jdomenechb\BRChain\Exception\Parser;
+namespace Jdomenechb\BRChain\Exception\Factory;
 
 use Throwable;
 
 /**
- * Exception to be thrown when the type parameter is missing-.
+ * Exception to be thrown when a chain option is not an array.
  */
-class MissingTypeParameterException extends MissingParameterException
+class ChainNotAnArrayException extends FactoryException
 {
     /**
-     * MissingParameterException constructor.
+     * ChainNotAnArrayException constructor.
      *
      * @param array          $context
      * @param Throwable|null $previous
      */
     public function __construct(array $context, Throwable $previous = null)
     {
-        parent::__construct('Parameter "type" missing', $context, $previous);
+        $msg = 'The chain parameter is not a list of chain items';
+
+        parent::__construct($msg, $context, $previous);
     }
 }

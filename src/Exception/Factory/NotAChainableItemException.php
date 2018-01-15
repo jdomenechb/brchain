@@ -11,24 +11,25 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Jdomenechb\BRChain\Exception\Parser;
+namespace Jdomenechb\BRChain\Exception\Factory;
 
 use Throwable;
 
 /**
- * Exception to be thrown when the parsed content does not implement SourceInterface.
+ * Exception to be thrown when the created content does not implement ChainableItemInterface.
  */
-class NotASourceException extends ParserException
+class NotAChainableItemException extends FactoryException
 {
     /**
-     * NotASourceException constructor.
+     * NotAChainableItemException constructor.
      *
+     * @param string         $obj
      * @param array          $context
      * @param Throwable|null $previous
      */
-    public function __construct(array $context, Throwable $previous = null)
+    public function __construct(string $obj, array $context, Throwable $previous = null)
     {
-        $msg = 'The data given to parse should start by a Source item.';
+        $msg = 'The object ' . $obj . ' is not a chainable item';
 
         parent::__construct($msg, $context, $previous);
     }

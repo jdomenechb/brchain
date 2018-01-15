@@ -11,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Jdomenechb\BRChain\Exception\Parser;
+namespace Jdomenechb\BRChain\Exception\Factory;
 
 use Jdomenechb\BRChain\Exception\BRChainException;
 use Throwable;
@@ -19,7 +19,7 @@ use Throwable;
 /**
  * Abstract parser exception to be extended by any parser exception.
  */
-abstract class ParserException extends BRChainException
+abstract class FactoryException extends BRChainException
 {
     /**
      * Context in which the exception happened.

@@ -11,26 +11,26 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Jdomenechb\BRChain\Exception\Parser;
+namespace Jdomenechb\BRChain\Exception\Factory;
 
 use Throwable;
 
 /**
  * Exception to be thrown when the given type is not known.
  */
-class UnknownNameException extends ParserException
+class UnknownTypeException extends FactoryException
 {
     /**
      * UnknownTypeException constructor.
      *
      * @param string         $type
-     * @param string         $name
+     * @param string[]       $knownTypes
      * @param array          $context
      * @param Throwable|null $previous
      */
-    public function __construct(string $type, string $name, array $context, Throwable $previous = null)
+    public function __construct(string $type, array $knownTypes, array $context, Throwable $previous = null)
     {
-        $msg = 'Unknown ' . $type . ' "' . $name . '"';
+        $msg = 'Unknown item type "' . $type . '". Known types are: ' . \implode(', ', $knownTypes);
 
         parent::__construct($msg, $context, $previous);
     }

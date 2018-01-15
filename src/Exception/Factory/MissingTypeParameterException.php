@@ -11,24 +11,23 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Jdomenechb\BRChain\Exception\Parser;
+namespace Jdomenechb\BRChain\Exception\Factory;
 
 use Throwable;
 
 /**
- * Exception to be thrown when a parameter is missing.
+ * Exception to be thrown when the type parameter is missing-.
  */
-class MissingParameterException extends ParserException
+class MissingTypeParameterException extends MissingParameterException
 {
     /**
      * MissingParameterException constructor.
      *
-     * @param string         $parameter
      * @param array          $context
      * @param Throwable|null $previous
      */
-    public function __construct(string $parameter, array $context, Throwable $previous = null)
+    public function __construct(array $context, Throwable $previous = null)
     {
-        parent::__construct('Parameter "' . $parameter . '" missing', $context, $previous);
+        parent::__construct('type', $context, $previous);
     }
 }
