@@ -29,12 +29,14 @@ interface PropertyItemInterface extends ItemInterface
 
     /**
      * Get the context in which the property should evaluate.
+     *
      * @return SourceItemInterface
      */
     public function getContext(): SourceItemInterface;
 
     /**
      * Set the context in which the property should evaluate.
+     *
      * @param SourceItemInterface $context
      */
     public function setContext(SourceItemInterface $context): void;
