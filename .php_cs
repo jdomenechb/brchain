@@ -22,7 +22,7 @@ $config = PhpCsFixer\Config::create()
         'escape_implicit_backslashes' => ['double_quoted' => true, 'heredoc_syntax' => true, 'single_quoted' => true],
         'explicit_indirect_variable' => true,
         'explicit_string_variable' => true,
-        'general_phpdoc_annotation_remove' => ['annotations' => ['package']],
+        'general_phpdoc_annotation_remove' => ['annotations' => ['package', 'author']],
         'header_comment' => [
             'header' => $header,
             'commentType' => 'PHPDoc',
