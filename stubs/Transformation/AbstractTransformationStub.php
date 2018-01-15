@@ -21,7 +21,7 @@ use Jdomenechb\BRChain\Transformation\AbstractTransformation;
  */
 class AbstractTransformationStub extends AbstractTransformation
 {
-    public function process(SourceItemInterface $sourceItem): void
+    public function transform(SourceItemInterface $sourceItem): void
     {
         // Nothing
     }

@@ -54,7 +54,7 @@ class AddNode extends AbstractTransformation
      *
      * @throws SourceItemNotProcessableExtension
      */
-    public function process(SourceItemInterface $sourceItem): void
+    public function transform(SourceItemInterface $sourceItem): void
     {
         if (!$sourceItem instanceof XMLSourceItem) {
             throw new SourceItemNotProcessableExtension(\get_class($sourceItem), static::class);
