@@ -29,7 +29,7 @@ abstract class AbstractNegatedChainableItemAbsFactory extends AbstractChainableI
     public function canCreateItem(string $type, string $name): bool
     {
         if ($this->isNegated($name)) {
-            $name = \substr($name, 3);
+            $name = (string) \substr($name, 3);
         }
 
         return parent::canCreateItem($type, $name);
@@ -46,7 +46,7 @@ abstract class AbstractNegatedChainableItemAbsFactory extends AbstractChainableI
 
         if ($this->isNegated($name)) {
             $isNegated = true;
-            $name = \substr($name, 3);
+            $name = (string) \substr($name, 3);
         }
 
         $obj = parent::create($type, $name, $data);
@@ -65,6 +65,6 @@ abstract class AbstractNegatedChainableItemAbsFactory extends AbstractChainableI
 
     protected function isNegated(string $name): bool
     {
-        return 0 === \strpos($name, 'Not') && \preg_match('#^[A-Z]$#', $name[4]);
+        return 0 === \strpos($name, 'Not') && \preg_match('#^[A-Z]$#', $name[3]);
     }
 }
