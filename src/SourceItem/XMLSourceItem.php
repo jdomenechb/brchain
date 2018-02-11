@@ -80,11 +80,12 @@ class XMLSourceItem implements SourceItemInterface
 
         $result = [];
 
-        $matchedNodes = $domXPath->query($path);
+        $matchedNodes = $domXPath->query($path, $this->getData());
 
         foreach ($matchedNodes as $matchedNode) {
             $created = new self($matchedNode);
             $created->setNamespacePrefixes($prefixes);
+
             $result[] = $created;
         }
 
@@ -123,4 +124,11 @@ class XMLSourceItem implements SourceItemInterface
 
         return $this->domXPath;
     }
+
+    public function setValue(string $value): void
+    {
+       $this->data->nodeValue = $value;
+    }
+
+
 }

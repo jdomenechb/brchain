@@ -33,4 +33,11 @@ interface SourceItemInterface
      * @return string
      */
     public function getValue(): string;
+
+    /**
+     * Sets the value of the SourceItem.
+     *
+     * @param string $value
+     */
+    public function setValue(string $value): void;
 }
