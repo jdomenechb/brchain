@@ -24,7 +24,7 @@ use Jdomenechb\BRChain\String\StringInterface;
 class Transliterate extends AbstractTransformation
 {
     /**
-     * ICU transform to applicate to the value.
+     * ICU transform to apply to the value.
      * @var StringInterface
      * @see http://userguide.icu-project.org/transforms/general
      */
