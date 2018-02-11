@@ -25,7 +25,9 @@
     },
 
     "require": {
-        "php": ">=7.1"
+        "php": ">=7.1",
+        "ext-mbstring" : "*",
+        "ext-intl" : "*"
     },
 
     "require-dev": {
