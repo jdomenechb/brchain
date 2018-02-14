@@ -83,14 +83,6 @@ abstract class AbstractCondition implements ConditionInterface
      */
     public function process(SourceItemInterface $sourceItem): void
     {
-        $vars = \get_object_vars($this);
-
-        foreach ($vars as $var) {
-            if ($var instanceof PropertyItemInterface) {
-                $var->setContext($sourceItem);
-            }
-        }
-
         if ($optionalPath = $this->strPath()) {
             $possibleSourceItem = $sourceItem->queryPath($optionalPath);
 
@@ -101,6 +93,14 @@ abstract class AbstractCondition implements ConditionInterface
             $evaluationSourceItem = \array_shift($possibleSourceItem);
         } else {
             $evaluationSourceItem = $sourceItem;
+        }
+
+        $vars = \get_object_vars($this);
+
+        foreach ($vars as $var) {
+            if ($var instanceof PropertyItemInterface) {
+                $var->setContext($evaluationSourceItem);
+            }
         }
 
         $evaluationResult = $this->evaluate($evaluationSourceItem);
