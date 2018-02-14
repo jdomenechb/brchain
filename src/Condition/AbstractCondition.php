@@ -16,6 +16,7 @@ namespace Jdomenechb\BRChain\Condition;
 use Jdomenechb\BRChain\CallStringOptionTrait;
 use Jdomenechb\BRChain\Chain\ChainContainerItemTrait;
 use Jdomenechb\BRChain\DynamicOptionsTrait;
+use Jdomenechb\BRChain\PropertyItemInterface;
 use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
 use Jdomenechb\BRChain\String\StringInterface;
 
@@ -82,6 +83,14 @@ abstract class AbstractCondition implements ConditionInterface
      */
     public function process(SourceItemInterface $sourceItem): void
     {
+        $vars = \get_object_vars($this);
+
+        foreach ($vars as $var) {
+            if ($var instanceof PropertyItemInterface) {
+                $var->setContext($sourceItem);
+            }
+        }
+
         if ($optionalPath = $this->strPath()) {
             $possibleSourceItem = $sourceItem->queryPath($optionalPath);
 
