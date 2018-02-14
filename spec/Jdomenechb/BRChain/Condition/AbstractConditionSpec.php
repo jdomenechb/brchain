@@ -123,6 +123,8 @@ class AbstractConditionSpec extends ObjectBehavior
         $parentSourceItem->queryPath('a')->willReturn([$childSourceItem]);
         $this->setPath($path);
 
+        $path->setContext($childSourceItem)->shouldBeCalled();
+
         $chain->process($parentSourceItem)->shouldBeCalled();
         $this->setChain($chain);
 
