@@ -13,27 +13,24 @@ declare(strict_types=1);
 
 namespace Jdomenechb\BRChain\Transformation;
 
-
 use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
 use Jdomenechb\BRChain\String\StringInterface;
 
 /**
  * Transformation for changing the value of a SourceItem.
+ *
  * @method string strValue()
  */
 class Set extends AbstractTransformation
 {
     /**
      * Value to set to the SourceItem.
+     *
      * @var StringInterface
+     *
      * @see http://userguide.icu-project.org/transforms/general
      */
     protected $value;
-
-    protected function transform(SourceItemInterface $sourceItem): void
-    {
-        $sourceItem->setValue($this->strValue());
-    }
 
     /**
      * @return StringInterface
@@ -51,4 +48,8 @@ class Set extends AbstractTransformation
         $this->value = $value;
     }
 
+    protected function transform(SourceItemInterface $sourceItem): void
+    {
+        $sourceItem->setValue($this->strValue());
+    }
 }

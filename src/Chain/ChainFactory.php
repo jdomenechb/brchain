@@ -14,6 +14,8 @@ declare(strict_types=1);
 namespace Jdomenechb\BRChain\Chain;
 
 use Jdomenechb\BRChain\Exception\Factory\ChainNotAnArrayException;
+use Jdomenechb\BRChain\Exception\Factory\MissingParameterException;
+use Jdomenechb\BRChain\Exception\Factory\UnknownItemException;
 use Jdomenechb\BRChain\Factory\ChainableItemFactory;
 
 class ChainFactory
@@ -29,6 +31,8 @@ class ChainFactory
      * @param array $data
      *
      * @throws ChainNotAnArrayException
+     * @throws MissingParameterException
+     * @throws UnknownItemException
      *
      * @return Chain
      */

@@ -18,12 +18,14 @@ use Jdomenechb\BRChain\String\StringInterface;
 
 /**
  * Executes the containing chain if the value matches the regex.
+ *
  * @method string strRegex()
  */
 class MatchesRegex extends AbstractCondition
 {
     /**
      * (Required) Regex to compare the value against.
+     *
      * @var StringInterface
      */
     protected $regex;
@@ -35,7 +37,7 @@ class MatchesRegex extends AbstractCondition
     {
         $value = $sourceItem->getValue();
 
-        return (bool) preg_match($this->strRegex(), $value);
+        return (bool) \preg_match($this->strRegex(), $value);
     }
 
     /**

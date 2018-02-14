@@ -13,29 +13,24 @@ declare(strict_types=1);
 
 namespace Jdomenechb\BRChain\Transformation;
 
-
 use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
 use Jdomenechb\BRChain\String\StringInterface;
 
 /**
- * Transformation for transliteraterating SourceItem Values.
+ * Transformation for transliterating SourceItem Values.
+ *
  * @method string strIcuTransform()
  */
 class Transliterate extends AbstractTransformation
 {
     /**
      * ICU transform to apply to the value.
+     *
      * @var StringInterface
+     *
      * @see http://userguide.icu-project.org/transforms/general
      */
     protected $icuTransform;
-
-    protected function transform(SourceItemInterface $sourceItem): void
-    {
-        $string = $sourceItem->getValue();
-        $string = \transliterator_transliterate($this->strIcuTransform(), $string);
-        $sourceItem->setValue($string);
-    }
 
     /**
      * @return StringInterface
@@ -53,4 +48,10 @@ class Transliterate extends AbstractTransformation
         $this->icuTransform = $icuTransform;
     }
 
+    protected function transform(SourceItemInterface $sourceItem): void
+    {
+        $string = $sourceItem->getValue();
+        $string = \transliterator_transliterate($this->strIcuTransform(), $string);
+        $sourceItem->setValue($string);
+    }
 }

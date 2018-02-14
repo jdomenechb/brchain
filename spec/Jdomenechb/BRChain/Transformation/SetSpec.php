@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * This file is part of the brchain package.
+ *
+ * (c) Jordi Domènech Bonilla
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace spec\Jdomenechb\BRChain\Transformation;
 
 use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
@@ -10,7 +19,7 @@ use Jdomenechb\BRChain\Transformation\Set;
 
 class SetSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType(Set::class);
     }

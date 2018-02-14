@@ -13,12 +13,12 @@ declare(strict_types=1);
 
 namespace Jdomenechb\BRChain\Transformation;
 
-
 use Jdomenechb\BRChain\SourceItem\SourceItemInterface;
 use Jdomenechb\BRChain\String\StringInterface;
 
 /**
  * Transformation for replacing strings using to search a Regex expression.
+ *
  * @method string strSearch()
  * @method string strReplacement()
  */
@@ -37,13 +37,6 @@ class RegexReplace extends AbstractTransformation
      * @var StringInterface
      */
     protected $replacement;
-
-    protected function transform(SourceItemInterface $sourceItem): void
-    {
-        $string = $sourceItem->getValue();
-        $string = preg_replace($this->strSearch(), $this->strReplacement(), $string);
-        $sourceItem->setValue($string);
-    }
 
     /**
      * @return StringInterface
@@ -77,6 +70,10 @@ class RegexReplace extends AbstractTransformation
         $this->replacement = $replacement;
     }
 
-
-
+    protected function transform(SourceItemInterface $sourceItem): void
+    {
+        $string = $sourceItem->getValue();
+        $string = \preg_replace($this->strSearch(), $this->strReplacement(), $string);
+        $sourceItem->setValue($string);
+    }
 }

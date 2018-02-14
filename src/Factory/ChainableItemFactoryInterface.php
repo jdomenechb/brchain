@@ -16,7 +16,7 @@ namespace Jdomenechb\BRChain\Factory;
 use Jdomenechb\BRChain\Chain\ChainableItemInterface;
 
 /**
- * Interface representing an interface capble of creating ChainableItems.
+ * Interface representing an interface capable of creating ChainableItems.
  */
 interface ChainableItemFactoryInterface extends ItemFactoryInterface
 {

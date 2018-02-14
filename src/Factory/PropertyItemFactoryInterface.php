@@ -16,7 +16,7 @@ namespace Jdomenechb\BRChain\Factory;
 use Jdomenechb\BRChain\PropertyItemInterface;
 
 /**
- * Interface representing an interface capble of creating PropertyItems.
+ * Interface representing an interface capable of creating PropertyItems.
  */
 interface PropertyItemFactoryInterface extends ItemFactoryInterface
 {

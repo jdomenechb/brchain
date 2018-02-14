@@ -19,23 +19,23 @@ use Jdomenechb\BRChain\String\StringInterface;
 /**
  * Executes the containing chain if the given path exists.
  *
- * @method string strPathToCheckExistance()
+ * @method string strPathToCheckExistence()
  */
 class PathExists extends AbstractCondition
 {
     /**
-     * Path to check existance (required).
+     * (Required) Path to check existence.
      *
      * @var StringInterface
      */
-    protected $pathToCheckExistance;
+    protected $pathToCheckExistence;
 
     /**
      * {@inheritdoc}
      */
     public function evaluate(SourceItemInterface $sourceItem): bool
     {
-        $subItems = $sourceItem->queryPath($this->strPathToCheckExistance());
+        $subItems = $sourceItem->queryPath($this->strPathToCheckExistence());
 
         return (bool) \count($subItems);
     }
@@ -43,16 +43,16 @@ class PathExists extends AbstractCondition
     /**
      * @return StringInterface
      */
-    public function getPathToCheckExistance(): StringInterface
+    public function getPathToCheckExistence(): StringInterface
     {
-        return $this->pathToCheckExistance;
+        return $this->pathToCheckExistence;
     }
 
     /**
-     * @param StringInterface $pathToCheckExistance
+     * @param StringInterface $pathToCheckExistence
      */
-    public function setPathToCheckExistance(StringInterface $pathToCheckExistance): void
+    public function setPathToCheckExistence(StringInterface $pathToCheckExistence): void
     {
-        $this->pathToCheckExistance = $pathToCheckExistance;
+        $this->pathToCheckExistence = $pathToCheckExistence;
     }
 }

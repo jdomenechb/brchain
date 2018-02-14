@@ -37,7 +37,7 @@ class StartsWith extends AbstractCondition
     {
         $value = $sourceItem->getValue();
 
-        return \mb_strpos($value, $this->strStart()) === 0;
+        return 0 === \mb_strpos($value, $this->strStart());
     }
 
     /**

@@ -100,6 +100,11 @@ class XMLSourceItem implements SourceItemInterface
         return $this->data->nodeValue;
     }
 
+    public function setValue(string $value): void
+    {
+        $this->data->nodeValue = $value;
+    }
+
     /**
      * @throws \RuntimeException
      *
@@ -124,11 +129,4 @@ class XMLSourceItem implements SourceItemInterface
 
         return $this->domXPath;
     }
-
-    public function setValue(string $value): void
-    {
-       $this->data->nodeValue = $value;
-    }
-
-
 }
